@@ -1,9 +1,9 @@
 Workshop - Introduction to Bayesian Statistic Using R
 ================
 
-<div style="padding: 1em;">
+<div style="padding: 2em;">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 300 align="right" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
 
 </div>
 
@@ -29,3 +29,19 @@ all) of the handouts in the “data mangling in the tidyverse” section. A
 strong understanding of the tidyverse is not required for this workshop,
 but completing these tutorials is a good and productive way to become
 used to working with R and RStudio.
+
+## Schedule
+
+### Monday - Theory
+
+-   9:00: Welcome
+
+-   9:30: Introduction
+
+### Tuesday - Practice
+
+-   9:00: A short (re-)introduction of R
+
+-   9:30: Basics of Bayesian Statistics
+
+-   10.30:
