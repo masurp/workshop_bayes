@@ -36,12 +36,38 @@ used to working with R and RStudio.
 
 -   9:00: Welcome
 
--   9:30: Introduction
+-   9:30: An Introductionary Example
+
+-   10:30: Basics of Bayesian Statistics
+
+-   11.30: Understanding priors
+
+-   13.00: Lunch break
+
+-   14.00: NHST vs Bayesian Inference
+
+-   14.45: Exercise I
+
+-   15.30: Coffee Break
+
+-   16.00: Intro to R and brms
 
 ### Tuesday - Practice
 
--   9:00: A short (re-)introduction of R
+-   9:00: Short Recap
 
--   9:30: Basics of Bayesian Statistics
+-   9:30: Defining priors and other fun stuff
 
--   10.30:
+-   10.30: Simple and Multiple Regression with brms
+
+-   11.30: Exercise II
+
+-   13.00: Lunch break
+
+-   14.00: Multilevel Regression
+
+-   14.45: Exercise III
+
+-   15.30: Coffee break
+
+-   16.00: Conclusions and Q&A
