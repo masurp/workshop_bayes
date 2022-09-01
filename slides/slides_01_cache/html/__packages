@@ -11,3 +11,6 @@ stringr
 forcats
 hrbrthemes
 xaringanthemer
+Rcpp
+brms
+tidybayes

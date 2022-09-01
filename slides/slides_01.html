@@ -128,6 +128,27 @@ Any prior experience?
 
 ---
 
+# Literature
+
+.pull-left[
+
+- My slides are based on this book by Kruschke...
+
+- ... and its translation to "brms" by Salomon Kurz ([see here](https://bookdown.org/content/3686/))
+
+- Great and comparatively simple introduction
+
+- Lots of examples (including R code)
+
+]
+
+.pull-right[
+![](https://m.media-amazon.com/images/I/41je2iREauL._AC_SY580_.jpg)
+]
+
+
+---
+
 class: inverse, center, middle
 
 # An Introductory Example
@@ -137,8 +158,6 @@ class: inverse, center, middle
 ---
 
 # Example: Covid-19 Rapid Test
-
-
 
 .pull-left[
 
@@ -270,6 +289,28 @@ What is the probability of the rapid test result being correct?
 
 ]
 
+---
+
+# A Short History of Bayesian Statistics
+
+.pull-left[
+
+- Thomas Bayes (1702-1761) was an English mathematician and presbyterian priest who came up with the idea of "inverse probability"
+
+- "An essay towards solving a problem in the doctrine of chances" includes a special cases of the Bayes theorem and was published posthum in 1764 by his friend Richard Price
+
+- Pierre-Simon Laplace (1749-1827) further develops the idea of "inverse probability"
+
+- 1980s: Increase in use of Bayesian statistics due to Markov Chain Monte Carlo methods (computational feasability)
+
+]
+ 
+
+.pull-right[
+
+![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Thomas_Bayes.gif)
+
+]
 
 ---
 
@@ -279,6 +320,74 @@ class: inverse, center, middle
 
 ---
 
+class: center, middle
+
+# What is probability?
+
+
+---
+
+# Probability
+
+- A long-run relative frequency
+    - according to frequentist statistics (Fisher, Person, Neyman...)
+
+&lt;br&gt;&lt;br&gt;
+
+--
+
+- A subjective belief
+    - according to Bayesian statistics (Bayes, Laplace...)
+
+---
+
+# Frequentist statistics explained
+
+.pull-left[
+- The "classic" statistical framework
+
+- Is based on the idea of repeated sampling from a population
+
+- Population parameters are fixed, actually exist
+
+- Probability refers to the long-run frequency of a given event
+
+- Data are random, result from sampling a fixed population distribution
+
+]
+
+.pull-right[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-4-1.png" width="100%" /&gt;
+
+]
+---
+# Sampling from the population
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-5-1.png" width="100%" /&gt;
+
+
+---
+
+# Parameter distribution
+
+.pull-left[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-6-1.png" width="100%" /&gt;
+
+]
+
+.pull-right[
+
+
+- According to the central limit theorem, the means are distributed around the true population parameter *M* = 680. 
+
+- The standard error (*SE* = `\(SD(x)/\sqrt(n-1)\)`), which we can computed based on a single sample, is an estimate for the variance of this mean distribution
+
+- In our first sample, the standard error is *SE* = `\(164/\sqrt(50-1)\)` = 27.3
+]
+
+---
 # Conceptual Framework of Bayesian Data Analysis
 
 &lt;br&gt;&lt;br&gt;
@@ -287,11 +396,115 @@ class: inverse, center, middle
 
 ---
 
+# Reallocation of credibility across possibilites
+
+.pull-left[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-7-1.png" width="100%" /&gt;
+]
+
+--
+
+.pull-right[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-8-1.png" width="100%" /&gt;
+
+]
+
+---
+
+# Logic of Bayesian Inference
 
 
+- the essence of Bayesian inference is reallocation of credibility across possibilities
+
+- The distribution of credibility initially reflects prior knowledge about the possibilities (which can be quite vague). 
+
+- Then new data are observed, and the credibility is re-allocated. 
+
+- Possibilities that are consistent with the data garner more credibility, while possibilities that are not consistent with the data lose credibility. 
+
+- Bayesian analysis is the mathematics of re-allocating credibility in a logically coherent and precise way. 
+
+_(Kruschke, 2015, p. 22)_
+
+---
 
 
+# Steps of Bayesian Data Analysis
 
+1. Identify the **data relevant to the research questions**. What are the measurement scales of the data? Which data variables are to be predicted, and which data variables are supposed to act as predictors?
+
+2. Define a **descriptive model** for the relevant data. The mathematical form and its parameters should be meaningful and appropriate to the theoretical purposes of the analysis.
+
+3. Specify a **prior distribution** on the parameters. The prior must pass muster with the audience of the analysis, such as skeptical scientists.
+
+4. Use Bayesian inference to **re-allocate credibility** across parameter values. Interpret the posterior distribution with respect to theoretically meaningful issues (assuming that the model is a reasonable description of the data; see next step).
+
+5. Check that the **posterior predictions** mimic the data with reasonable accuracy (i.e., conduct a “posterior predictive check”). If not, then consider a different descriptive model.
+
+---
+
+# An example: Social media use and well-being
+
+
+```
+# A tibble: 50 × 2
+       use    wb
+     &lt;dbl&gt; &lt;dbl&gt;
+ 1  1.37    3.42
+ 2 -0.565   3.2 
+ 3  0.363   4.55
+ 4  0.633   3.84
+ 5  0.404   3.53
+ 6 -0.106   3.79
+ 7  1.51    3.63
+ 8 -0.0947  3.66
+ 9  2.02    1   
+10 -0.0627  3.79
+# … with 40 more rows
+```
+
+---
+
+# Frequentist linear regression
+
+.pull-left[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
+
+]
+
+.pull-left[
+
+- We can define this model with the following formula:
+
+`\(y_i = \beta_0 + \beta_1x + \epsilon\)`
+
+- or alternatively as:
+
+`\(y_i = \beta_0 + \beta_1x\)`
+
+`\(y \sim normal(y_i, \sigma)\)`
+
+]
+
+
+---
+
+# Bayesian linear regression
+
+.pull-left[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
