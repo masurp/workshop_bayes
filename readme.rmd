@@ -12,9 +12,8 @@ Welcome to the 2022 workshop on *Bayesian Statistics Using R*. This page will be
 
 ## Preparation
 
-For this 2-day workshop, I expect you to have R and RStudio installed. I also expect you to have a good understanding of frequentist statistics and a basic working experience with R. If you are new to R, we have several videos and tutorials on our [R course material GitHub page](https://github.com/ccs-amsterdam/r-course-material) that can help you getting started. At least, have a look at the "getting started" tutorial, which walks you through the installation and helps you get some first hands-on experience using R. 
+For this 2-day workshop, I expect you to have R and RStudio installed and a basic working experience with R (at beast also with the `tidyverse`). I also expect you to have a good understanding of descriptive statistics (distributions, parameters of central tendency) and frequentist inference (standard error, p-value, confidence intervals). If you are new to R, we have several videos and tutorials on our [R course material GitHub page](https://github.com/ccs-amsterdam/r-course-material) that can help you getting started. At least, have a look at the "getting started" tutorial, which walks you through the installation and helps you get some first hands-on experience using R. Finally, in the applied part of the workshop, we will focus on regression models (e.g., linear regression, logistic regression, multilevel linear regression). A good understanding of these models is also beneficial. 
 
-Then, to become more proficient in R yourself, please complete some (or all) of the handouts in the "data mangling in the tidyverse" section. A strong understanding of the tidyverse is not required for this workshop, but completing these tutorials is a good and productive way to become used to working with R and RStudio. 
 
 
 ## Schedule
@@ -38,7 +37,7 @@ Then, to become more proficient in R yourself, please complete some (or all) of 
 
 - 15.30: Coffee Break
 
-- 16.00: Intro to R and brms
+- 16.00: Short intro to R and 'brms'
 
 
 ### Tuesday - Practice
@@ -47,13 +46,13 @@ Then, to become more proficient in R yourself, please complete some (or all) of 
 
 - 9:30: Defining priors and other fun stuff
 
-- 10.30: Simple and Multiple Regression with brms
+- 10.30: Simple and Multiple Regression with 'brms'
 
 - 11.30: Exercise II
 
 - 13.00: Lunch break
 
-- 14.00: Multilevel Regression
+- 14.00: Multilevel Regression with 'brms'
 
 - 14.45: Exercise III
 
