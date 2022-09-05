@@ -1,7 +1,7 @@
 Workshop - Introduction to Bayesian Statistic Using R
 ================
 
-<div style="padding: 2em;">
+<div style="padding: 3em;">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
 
@@ -26,7 +26,7 @@ moving beyond standard frequentist null hypothesis testing.
 
 ## Preparation
 
-<div style="padding: 2em;">
+<div style="padding: 3em;">
 
 <img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png" width = 100 align="right" />
 
@@ -70,17 +70,17 @@ For this 2-day workshop, I expect you…
 
 -   10:30: Basics of Bayesian Statistics
 
--   11.30: Understanding priors
+-   11.30: Markov Chains and Diagnostics
 
--   13.00: Lunch break
+-   13.00: *Lunch break*
 
--   14.00: NHST vs Bayesian Inference
+-   14.00: Understanding priors
 
--   14.45: Exercise I
+-   14.45: NHST vs Bayesian Inference
 
--   15.30: Coffee Break
+-   15.30: *Coffee Break*
 
--   16.00: Short intro to R and ‘brms’
+-   16.00: Getting started with ‘brms’
 
 ### Tuesday - Practice
 
@@ -90,14 +90,14 @@ For this 2-day workshop, I expect you…
 
 -   10.30: Simple and Multiple Regression with ‘brms’
 
--   11.30: Exercise II
+-   11.30: Exercise I
 
--   13.00: Lunch break
+-   13.00: *Lunch break*
 
 -   14.00: Multilevel Regression with ‘brms’
 
--   14.45: Exercise III
+-   14.45: Exercise II
 
--   15.30: Coffee break
+-   15.30: *Coffee break*
 
 -   16.00: Conclusions and Q&A
