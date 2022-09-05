@@ -74,7 +74,7 @@ For this 2-day workshop, I expect you…
 
 -   13.00: *Lunch break*
 
--   14.00: Understanding priors
+-   14.00: Subjective Beliefs as Prior Distributions
 
 -   14.45: NHST vs Bayesian Inference
 
