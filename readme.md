@@ -74,9 +74,9 @@ For this 2-day workshop, I expect you…
 
 -   13.00: *Lunch break*
 
--   14.00: Subjective Beliefs as Prior Distributions
+-   14.00: NHST vs Bayesian Inference
 
--   14.45: NHST vs Bayesian Inference
+-   14.45: Subjective Beliefs and Knowledge Cumulation
 
 -   15.30: *Coffee Break*
 
