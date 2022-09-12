@@ -70,7 +70,7 @@ For this 2-day workshop, I expect you…
 
 -   10:30: Basics of Bayesian Statistics
 
--   11.30: Markov Chains and Diagnostics
+-   11.30: Markov Chain Monte Carlo
 
 -   13.00: *Lunch break*
 
