@@ -1,5 +1,4 @@
 knitr
-sjPlot
 tidyverse
 ggplot2
 tibble
@@ -10,7 +9,13 @@ dplyr
 stringr
 forcats
 hrbrthemes
+tidybayes
+ggthemes
+cowplot
 xaringanthemer
 Rcpp
 brms
-tidybayes
+bayesplot
+bayestestR
+insight
+see

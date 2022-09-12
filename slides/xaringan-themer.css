@@ -20,7 +20,7 @@
  * ------------------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
 
 
 :root {
@@ -32,11 +32,11 @@
   --header-font-family: 'Open Sans Condensed';
   --header-font-is-google: 1;
   --header-font-family-fallback: Georgia, serif;
-  --code-font-family: 'Roboto Mono';
+  --code-font-family: 'Source Code Pro';
   --code-font-is-google: 1;
   --base-font-size: 20px;
-  --text-font-size: 25px;
-  --code-font-size: 23px;
+  --text-font-size: 21px;
+  --code-font-size: 0.6em;
   --code-inline-font-size: 1em;
   --header-h1-font-size: 2.75rem;
   --header-h2-font-size: 2.25rem;
@@ -78,7 +78,7 @@ h1, h2, h3 {
 }
 .remark-slide-content {
   background-color: var(--background-color);
-  font-size: 25px;
+  font-size: 21px;
   padding: 0em 2em .5em 2em;
   width: 100%;
   height: 100%;
@@ -307,7 +307,6 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 }
 .pull-left code {
   border-right: 1px dashed #ccc;
-  height: 450px;
 }
 .remark-slide tr:nth-child(even) {
   background-color: #f8f8f8;
