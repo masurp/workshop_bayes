@@ -222,7 +222,40 @@ Any prior experience?
 ![](img/books.jpg)
 ]
 
+---
 
+# R Packages
+
+.pull-left2[
+
+&lt;img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png"  width="150px" height="150px" padding-left="50px"&gt;&lt;img src="https://easystats.github.io/bayestestR/logo.png"  width="150px" height="150px" padding-left="50px"&gt;
+
+&lt;img src="https://raw.githubusercontent.com/stan-dev/logos/master/logo_tm.png"  width="150px" height="150px" padding-left="50px"&gt;
+
+]
+
+.pull-right2[
+
+- **brms**: Bayesian regression models using Stan
+
+    - Main package
+    - All types of models supported
+    
+- **bayestestR**
+
+    - set of functions to analyze and describe posterior distributions
+    - ggplot-based visualizations
+    
+- **tidybayes**
+
+    - facilitates the use of tidy data with Bayesian models in R
+    
+- **bayesplot**
+
+    - plotting functions for use after fitting Bayesian models (typically with MCMC)
+    - ggplot-based visualizations
+
+]
 ---
 
 class: inverse, center, middle
@@ -1786,6 +1819,10 @@ class: inverse, center, middle
 &lt;img src="slides_01_files/figure-html/unnamed-chunk-49-1.png" width="100%" /&gt;
 
 
+- In contrast to frequentist confidence intervals, HDIs are not bound to asymptotic assumptions
+
+- Bayesian inference thus works on any type of posterior distribution!
+
 ---
 
 # Computing HDIs with `bayestestR`
@@ -1861,7 +1898,7 @@ plot(hdis) +
 ]
 ---
 
-# # Computing ROPES with `bayestestR`
+# Computing ROPES with `bayestestR`
 
 .pull-left4[
 
@@ -1971,13 +2008,14 @@ plotPriorPost &lt;- function(model, effect) {
   # Plot
   bind_rows(posteriors3, priors3)%&gt;%
     ggplot(aes(x = !! effect, fill = type)) +
-    geom_density(alpha = .5) +
+    geom_density(alpha = .8) +
     theme_tidybayes() +
     theme(legend.position = "top") +
-    labs(y = "", fill = "")
+    labs(x = expr(theta), y = "", fill = "") +
+    scale_fill_manual(values = c("steelblue", "grey"))
 }
 
-plotPriorPost(m_bay2, b_perceptions_std)
+plotPriorPost(m_bay2, b_perceptions_std) + xlim(-5, 5)
 ```
 
 
@@ -1996,15 +2034,23 @@ plotPriorPost(m_bay2, b_perceptions_std)
 
 .pull-left[
 
+- It should be obvious that a weakly informative prior is hardly appropriate
+
+- For example, a meta analysis by Rains et al. (2018) of 60 years of communication research suggest an average effect of r = 0.2. Why not include this prior information in the model?
+
+- We keep the distribution fairly wide, but I think we can all agree that values &gt; .5 are rather unlikely. 
+
 
 ```r
 tibble(x = seq(-1, 1, by = .001),
        "weakly informative" = dnorm(x = x, mean = 0, sd = 10),
-       "mildy informative" = dnorm(x = x, mean = 0.2, sd = .5)) %&gt;%
+       "mildy informative" = dnorm(x = x, mean = 0.21, sd = .5)) %&gt;%
   gather(key, value, -x) %&gt;%
-  ggplot(aes(x = x, y = value, color = key)) +
-  geom_line() +
-  labs(color = "") +
+  ggplot(aes(x = x, y = value, fill = key)) +
+  geom_area(alpha = .8) +
+  geom_vline(xintercept = 0.21, color = "grey", linetype = "dotted") +
+  scale_fill_manual(values = c("steelblue", "grey")) +
+  labs(fill = "", x = expr(theta), y = expr(P(theta))) +
   theme_tidybayes()
 ```
 
@@ -2104,6 +2150,7 @@ ggplot(d[1:100,], aes(x = norm, y = perceptions, fill = norm)) +
   geom_violindot() +
   theme_tidybayes() +
   scale_y_continuous(n.breaks = 7) +
+  scale_fill_brewer(palette = "Blues") +
   labs(x = "Norm Manipulations", y = "Norm Perceptions") +
   theme(legend.position = "none")
 ```
@@ -2173,6 +2220,12 @@ save(step1, step2, step3, step4, file = "slides/material/results/examples.RData"
 
 &lt;img src="slides_01_files/figure-html/unnamed-chunk-60-1.png" width="100%" /&gt;
 
+--
+
+- Within a Bayesian framework, we can connect findings of consecutive studies to gain more and more understanding of the parameter of interest
+
+- Over time, we might even reach a point at which the data doesn't contribute any additional information to the prior (study 4)
+
 
 ---
 
@@ -2214,6 +2267,27 @@ Parameter   | Median |        95% CI |     pd |          ROPE | % in ROPE |  Rha
 (Intercept) |   0.16 | [-0.21, 0.52] | 79.65% | [-0.17, 0.17] |    51.89% | 1.000 | 1667.00
 norm_n      |   1.54 | [ 1.40, 1.68] |   100% | [-0.17, 0.17] |        0% | 1.001 | 1669.00
 ```
+
+---
+
+# Cumulative evidence, better estimation
+
+.pull-left[
+
+- As we can see clearly in the figure on the right, the estimation of the parameter of interest becomes better and better
+
+- After all, we are using information from 4 studies in the last step
+
+- Priors based on past studies thus improve the model and the estimation
+
+
+
+]
+
+.pull-right[
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-62-1.png" width="100%" /&gt;
+
+]
 
 ---
 

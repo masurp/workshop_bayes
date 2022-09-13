@@ -8,7 +8,6 @@ purrr
 dplyr
 stringr
 forcats
-hrbrthemes
 tidybayes
 ggthemes
 cowplot
@@ -16,6 +15,6 @@ xaringanthemer
 Rcpp
 brms
 bayesplot
-bayestestR
 insight
+bayestestR
 see

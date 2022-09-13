@@ -216,7 +216,40 @@ tribble(
 ![](img/books.jpg)
 ]
 
+---
 
+# R Packages
+
+.pull-left2[
+
+<img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png"  width="150px" height="150px" padding-left="50px"><img src="https://easystats.github.io/bayestestR/logo.png"  width="150px" height="150px" padding-left="50px">
+
+<img src="https://raw.githubusercontent.com/stan-dev/logos/master/logo_tm.png"  width="150px" height="150px" padding-left="50px">
+
+]
+
+.pull-right2[
+
+- **brms**: Bayesian regression models using Stan
+
+    - Main package
+    - All types of models supported
+    
+- **bayestestR**
+
+    - set of functions to analyze and describe posterior distributions
+    - ggplot-based visualizations
+    
+- **tidybayes**
+
+    - facilitates the use of tidy data with Bayesian models in R
+    
+- **bayesplot**
+
+    - plotting functions for use after fitting Bayesian models (typically with MCMC)
+    - ggplot-based visualizations
+
+]
 ---
 
 class: inverse, center, middle
@@ -2031,7 +2064,7 @@ draws %>%
 # Highest density interval (HDI)
 
 
-```{r, echo=F, fig.height = 4, fig.width = 12}
+```{r, echo=F, fig.height = 3.7, fig.width = 12}
 h1 <-
   hdi_of_icdf(name = qnorm,
               mean = 0,
@@ -2120,12 +2153,16 @@ p3 <- ggplot(data = dens,
            label = "95% HDI", color = "white") +
   scale_x_continuous(breaks = 0:6, limits = c(0, 6.3)) +
   scale_y_continuous("p(x)", breaks = c(0, .1, .2, .3, .4, .5)) +
-  theme_tidybayes()
+  theme_tidybayes() 
 
 plot_grid(p1, p2, p3, nrow = 1)
 
 ```
 
+
+- In contrast to frequentist confidence intervals, HDIs are not bound to asymptotic assumptions
+
+- Bayesian inference thus works on any type of posterior distribution!
 
 ---
 
@@ -2196,7 +2233,7 @@ plot_grid(p1a, p2a, rel_widths = c(1, 1.2))
 ]
 ---
 
-# # Computing ROPES with `bayestestR`
+# Computing ROPES with `bayestestR`
 
 .pull-left4[
 ```{r}
@@ -2292,13 +2329,14 @@ plotPriorPost <- function(model, effect) {
   # Plot
   bind_rows(posteriors3, priors3)%>%
     ggplot(aes(x = !! effect, fill = type)) +
-    geom_density(alpha = .5) +
+    geom_density(alpha = .8) +
     theme_tidybayes() +
     theme(legend.position = "top") +
-    labs(y = "", fill = "")
+    labs(x = expr(theta), y = "", fill = "") +
+    scale_fill_manual(values = c("steelblue", "grey"))
 }
 
-plotPriorPost(m_bay2, b_perceptions_std)
+plotPriorPost(m_bay2, b_perceptions_std) + xlim(-5, 5)
 ```
 
 
@@ -2319,14 +2357,22 @@ plotPriorPost(m_bay2, b_perceptions_std)
 
 .pull-left[
 
+- It should be obvious that a weakly informative prior is hardly appropriate
+
+- For example, a meta analysis by Rains et al. (2018) of 60 years of communication research suggest an average effect of r = 0.2. Why not include this prior information in the model?
+
+- We keep the distribution fairly wide, but I think we can all agree that values > .5 are rather unlikely. 
+
 ```{r prior2, eval = F}
 tibble(x = seq(-1, 1, by = .001),
        "weakly informative" = dnorm(x = x, mean = 0, sd = 10),
-       "mildy informative" = dnorm(x = x, mean = 0.2, sd = .5)) %>%
+       "mildy informative" = dnorm(x = x, mean = 0.21, sd = .5)) %>%
   gather(key, value, -x) %>%
-  ggplot(aes(x = x, y = value, color = key)) +
-  geom_line() +
-  labs(color = "") +
+  ggplot(aes(x = x, y = value, fill = key)) +
+  geom_area(alpha = .8) +
+  geom_vline(xintercept = 0.21, color = "grey", linetype = "dotted") +
+  scale_fill_manual(values = c("steelblue", "grey")) +
+  labs(fill = "", x = expr(theta), y = expr(P(theta))) +
   theme_tidybayes()
 ```
 
@@ -2406,6 +2452,7 @@ ggplot(d[1:100,], aes(x = norm, y = perceptions, fill = norm)) +
   geom_violindot() +
   theme_tidybayes() +
   scale_y_continuous(n.breaks = 7) +
+  scale_fill_brewer(palette = "Blues") +
   labs(x = "Norm Manipulations", y = "Norm Perceptions") +
   theme(legend.position = "none")
 ```
@@ -2477,14 +2524,20 @@ save(step1, step2, step3, step4, file = "slides/material/results/examples.RData"
 
 # Bayesian Updating
 
-```{r, echo = F, fig.height = 5, fig.width = 15}
-p1 <- plotPriorPost(step1, b_norm_n) + theme(legend.position = "none") + ggtitle("Weakly informative prior 1")
-p2 <- plotPriorPost(step2, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 1 = Prior 2")
-p3 <- plotPriorPost(step3, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 2 = Prior 3")
-p4 <- plotPriorPost(step4, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 3 = Prior 4")
+```{r, echo = F, fig.height = 3.25, fig.width = 12}
+p1 <- plotPriorPost(step1, b_norm_n) + theme(legend.position = "none") + ggtitle("Weakly informative prior 1") + xlim(-3, 5)
+p2 <- plotPriorPost(step2, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 1 = Prior 2") + xlim(0.7, 2.1) 
+p3 <- plotPriorPost(step3, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 2 = Prior 3") + xlim(0.7, 2.1) 
+p4 <- plotPriorPost(step4, b_norm_n) + theme(legend.position = "none") + ggtitle("Posterior 3 = Prior 4") + xlim(0.7, 2.1) 
 
 plot_grid(p1, p2, p3, p4, nrow = 1)
 ```
+
+--
+
+- Within a Bayesian framework, we can connect findings of consecutive studies to gain more and more understanding of the parameter of interest
+
+- Over time, we might even reach a point at which the data doesn't contribute any additional information to the prior (study 4)
 
 
 ---
@@ -2497,6 +2550,40 @@ describe_posterior(step2)
 describe_posterior(step3)
 describe_posterior(step4)
 ```
+
+---
+
+# Cumulative evidence, better estimation
+
+.pull-left[
+
+- As we can see clearly in the figure on the right, the estimation of the parameter of interest becomes better and better
+
+- After all, we are using information from 4 studies in the last step
+
+- Priors based on past studies thus improve the model and the estimation
+
+
+
+]
+
+.pull-right[
+```{r, echo = F}
+bind_rows(
+fixef(step1)[2,], 
+fixef(step2)[2,], 
+fixef(step3)[2,], 
+fixef(step4)[2,]) %>%
+  mutate(model = c("step1", "step2", "step3", "step4")) %>%
+  ggplot(aes(x = model, y = Estimate, ymin = Q2.5, ymax = Q97.5)) +
+  geom_pointrange() +
+  coord_flip() + 
+  theme_tidybayes() +
+  labs(y = expr(theta), x = "")
+
+```
+
+]
 
 ---
 
