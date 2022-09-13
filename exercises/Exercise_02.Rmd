@@ -1,0 +1,17 @@
+---
+title: 'Intro to Bayesian Statistic: Simple and Multiple Regression'
+author: "Philipp Masur"
+date: "2022-09"
+output: 
+  github_document:
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=F, message=F}
+knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FALSE)
+library(printr)
+library(tidyverse)
+```
+
