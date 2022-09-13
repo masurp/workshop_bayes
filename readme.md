@@ -86,17 +86,17 @@ For this 2-day workshop, I expect you…
 
 -   9:00: Short Recap
 
--   9:30: Defining priors and other fun stuff
+-   9:30: Exercise I: Basics and distributions
 
 -   10.30: Simple and Multiple Regression with ‘brms’
 
--   11.30: Exercise I
+-   11.30: Exercise II: Multiple Regression
 
 -   13.00: *Lunch break*
 
 -   14.00: Multilevel Regression with ‘brms’
 
--   14.45: Exercise II
+-   14.45: Exercise II: Multilevel Modelling
 
 -   15.30: *Coffee break*
 
