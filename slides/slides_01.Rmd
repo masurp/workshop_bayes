@@ -168,7 +168,7 @@ tribble(
 tribble(
   ~Time, ~Topic,
   "[9:00 - 9:30:](#s1)" , "Short Recap", 
-  "[9:30 - 10:30:](#s2)" , "Defining Priors",  
+  "[9:30 - 10:30:](#s2)" , "Exercise I",  
   "[10:30 - 11:30.](#s3)" , "Simple and Multiple Regression",	
   "[11:30 -  13:00.](#s4)", "Exercise II",
   "13:00 - 14:00:" , "Lunch",	
