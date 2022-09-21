@@ -533,7 +533,7 @@ A long-run frequency
 .pull-right[
 
 
-- According to the central limit theorem, the means are distributed around the true population parameter $M = $ 680. 
+- According to the central limit theorem, the means are distributed around the true population parameter `\(M\)` = 680. 
 
 - The standard error, defined as `\(SE = SD(x)/\sqrt(n-1)\)` and which we can computed based on a single sample, is an estimate for the variance of this mean distribution
 
@@ -544,9 +544,18 @@ A long-run frequency
 
 # What is the p-value then?
 
+.pull-left[
+
 - The p-value tells you how often you would expect to see a test statistic as extreme or more extreme than the one calculated by your statistical test if the null hypothesis of that test was true
 
 - We thus investigate the plausability of the data given `\(H_0\)`, but NOT the plausibility of the hypothesis given the data!
+
+]
+
+.pull-right[
+
+![](https://i.stack.imgur.com/MsNnP.png)
+]
 
 
 ---
@@ -772,8 +781,9 @@ d1 %&gt;%
 
 --
 
+&lt;br&gt;
 
-*Note:* This works because beta and binomial distribution are from the same family of distributions. The beta distribution is what we call a "conjugate" prior to the binomial distribution!
+**Note:** This works because beta and binomial distribution are from the same family of distributions. The beta distribution is what we call a "conjugate" prior to the binomial distribution!
 
 
 
@@ -1850,7 +1860,7 @@ head(posteriors)
 
 ```r
 # Get HDIs of different widths
-hdis &lt;- hdi(posteriors$b_perceptions_std, ci = c(.75, .90, .95, .99))
+hdis &lt;- bayestestR::hdi(posteriors$b_perceptions_std, ci = c(.75, .90, .95, .99))
 hdis
 ```
 
@@ -1938,6 +1948,91 @@ plot(ropes) +
 &lt;img src="slides_01_files/figure-html/unnamed-chunk-54-1.png" width="100%" /&gt;
 
 ]
+
+---
+
+# Probability of direction (PD)
+
+.pull-left[
+
+- At times, we may want to know if an effect is positive or negative (akin to the frequentist null hypothesis significance test)
+
+- In this case, we can also simply compute the proportion of a posterior distribution that is positive, no matter the "size" of the effect (I think you already see the limited use of this... )
+
+- The calculation of this probability is rather simple: We count the number of values below or above 0 (or whatever value we consider our NULL) and devide it by the number of all values in the posterior distribution
+
+]
+
+.pull-right[
+
+
+```r
+n_positive &lt;- nrow(filter(posteriors, b_Intercept &lt; 0))
+pd &lt;- n_positive / nrow(posteriors) * 100
+pd
+```
+
+```
+[1] 61.975
+```
+
+
+There is also a convenient function in the `bayestestR` package that does this for us: 
+
+
+```r
+p_direction(posteriors$b_Intercept)
+```
+
+```
+Probability of Direction: 0.62
+```
+
+]
+
+---
+
+# Relationship with the frequentist p-value
+
+.pull-left[
+
+- Beyond its simplicity of interpretation, understanding and computation, this index also presents other interesting properties:
+
+    - It is independent from the model: It is solely based on the posterior distributions and does not require any additional information from the data or the model.
+    - It is robust to the scale of both the response variable and the predictors.
+    - It is strongly correlated with the frequentist p-value, and can thus be used to draw parallels and give some reference to readers non-familiar with Bayesian statistics.
+
+*Note:** However, this index is not relevant to assess the magnitude and importance of an effect, which is (of course) better achieved through other indices such as the ROPE percentage. 
+
+]
+
+.pull-left[
+
+
+```r
+onesided_p &lt;- 1 - pd / 100
+twosided_p &lt;- onesided_p * 2
+twosided_p
+```
+
+```
+[1] 0.7605
+```
+
+
+.pull-right[
+
+```r
+summary(m_freq)$coef[1,]
+```
+
+```
+  Estimate Std. Error    t value   Pr(&gt;|t|) 
+-0.0317826  0.1000143 -0.3177806  0.7513715 
+```
+
+]
+
 
 ---
 
@@ -2218,7 +2313,7 @@ save(step1, step2, step3, step4, file = "slides/material/results/examples.RData"
 
 # Bayesian Updating
 
-&lt;img src="slides_01_files/figure-html/unnamed-chunk-60-1.png" width="100%" /&gt;
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-64-1.png" width="100%" /&gt;
 
 --
 
@@ -2285,7 +2380,7 @@ norm_n      |   1.54 | [ 1.40, 1.68] |   100% | [-0.17, 0.17] |        0% | 1.00
 ]
 
 .pull-right[
-&lt;img src="slides_01_files/figure-html/unnamed-chunk-62-1.png" width="100%" /&gt;
+&lt;img src="slides_01_files/figure-html/unnamed-chunk-66-1.png" width="100%" /&gt;
 
 ]
 
