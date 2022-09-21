@@ -2315,11 +2315,12 @@ p_direction(posteriors$b_Intercept)
     - It is robust to the scale of both the response variable and the predictors.
     - It is strongly correlated with the frequentist p-value, and can thus be used to draw parallels and give some reference to readers non-familiar with Bayesian statistics.
 
-*Note:** However, this index is not relevant to assess the magnitude and importance of an effect, which is (of course) better achieved through other indices such as the ROPE percentage. 
+
+**Note:** However, this index is not relevant to assess the magnitude and importance of an effect, which is (of course) better achieved through other indices such as the ROPE percentage. 
 
 ]
 
-.pull-left[
+.pull-right[
 
 ```{r}
 onesided_p <- 1 - pd / 100
@@ -2328,7 +2329,6 @@ twosided_p
 ```
 
 
-.pull-right[
 ```{r}
 summary(m_freq)$coef[1,]
 ```
