@@ -49,10 +49,9 @@ For this 2-day workshop, I expect you…
     on transforming, summarizing, visualizing and reshaping data in the
     “data wrangling with the tidyverse” category.
 
-3.  a good understanding of a good understanding of descriptive
-    statistics (distributions, parameters of central tendency) and
-    frequentist inference (standard error, p-value, confidence
-    intervals).
+3.  a good understanding of descriptive statistics (distributions,
+    parameters of central tendency) and frequentist inference (standard
+    error, p-value, confidence intervals).
 
 4.  some basic knowledge of regression models (e.g., linear regression,
     logistic regression, multilevel linear regression). In the practical
