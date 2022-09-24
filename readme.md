@@ -61,42 +61,32 @@ For this 2-day workshop, I expect you…
 
 ## Schedule
 
-### Monday - Theory
+### Monday, 10th October 2022
 
--   9:00: Welcome
+| Time                  | Topic                         |
+|:----------------------|:------------------------------|
+| [9:00 - 9:30:](#s1)   | Welcome                       |
+| [9:30 - 10:30:](#s2)  | An Introductory Example       |
+| [10:30 - 12:00.](#s3) | Basics of Bayesian Statistics |
+| [12:00 - 13:00.](#s4) | R: Exercise I                 |
+| 13:00 - 14:00:        | Lunch                         |
+| [14:00 - 14:45:](#s5) | Markov Chain Monte Carlo      |
+| [14:45 - 15:30:](#s6) | Bayesian Inference vs. NHST   |
+| 15:30 - 16:00:        | Coffee                        |
+| [16:00 - 17:00:](#s7) | R: Exercise II                |
 
--   9:30: An Introductory Example
+### Tuesday, 11th October 2022
 
--   10:30: Basics of Bayesian Statistics
+| Time                  | Topic                                       |
+|:----------------------|:--------------------------------------------|
+| [9:00 - 10:00:](#s1)  | Subjective Beliefs and Knowledge Cumulation |
+| [10:00 - 10:30:](#s2) | Short recap of Day 1                        |
+| [10:30 - 11:30.](#s3) | Simple and Multiple Regression              |
+| [11:30 - 13:00.](#s4) | R: Exercise III                             |
+| 13:00 - 14:00:        | Lunch                                       |
+| [14:00 - 14:45:](#s5) | Multilevel Regression                       |
+| [14:45 - 15:30:](#s6) | R: Exercise IV                              |
+| 15:30 - 16:00:        | Coffee                                      |
+| [16:00 - 17:00:](#s7) | Q&A’                                        |
 
--   11.30: Markov Chain Monte Carlo
-
--   13.00: *Lunch break*
-
--   14.00: NHST vs Bayesian Inference
-
--   14.45: Subjective Beliefs and Knowledge Cumulation
-
--   15.30: *Coffee Break*
-
--   16.00: Getting started with ‘brms’
-
-### Tuesday - Practice
-
--   9:00: Short Recap
-
--   9:30: Exercise I: Basics and distributions
-
--   10.30: Simple and Multiple Regression with ‘brms’
-
--   11.30: Exercise II: Multiple Regression
-
--   13.00: *Lunch break*
-
--   14.00: Multilevel Regression with ‘brms’
-
--   14.45: Exercise II: Multilevel Modelling
-
--   15.30: *Coffee break*
-
--   16.00: Conclusions and Q&A
+\]
