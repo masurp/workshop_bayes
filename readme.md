@@ -87,6 +87,4 @@ For this 2-day workshop, I expect you…
 | [14:00 - 14:45:](#s5) | Multilevel Regression                       |
 | [14:45 - 15:30:](#s6) | R: Exercise IV                              |
 | 15:30 - 16:00:        | Coffee                                      |
-| [16:00 - 17:00:](#s7) | Q&A’                                        |
-
-\]
+| [16:00 - 17:00:](#s7) | Q&A                                         |
