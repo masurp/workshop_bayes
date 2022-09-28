@@ -95,7 +95,7 @@ replicate(10, rbinom(n = 1, size = 10, .5))
 
 ## Density functions
 
-Remember the coin toss? How can we estimate the probability of observing 4 heads out of 10 tosses if the probability of sucess is assumend to be 50%? Well, the `dinom()` function can help us to estimate the probability!
+Remember the coin toss? How can we estimate the probability of observing 4 heads out of 10 tosses if the probability of success is assumed to be 50%? Well, the `dinom()` function can help us to estimate the probability!
 
 ```{r}
 dbinom(x = 4, size = 10, prob = .5)

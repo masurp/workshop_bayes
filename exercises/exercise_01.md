@@ -123,7 +123,7 @@ forget to load packages that you might need)
 ## Density functions
 
 Remember the coin toss? How can we estimate the probability of observing
-4 heads out of 10 tosses if the probability of sucess is assumend to be
+4 heads out of 10 tosses if the probability of success is assumed to be
 50%? Well, the `dinom()` function can help us to estimate the
 probability!
 
