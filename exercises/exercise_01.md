@@ -232,7 +232,7 @@ prior distribution (aka putting them on the same scale).
 ``` r
 # Compute likelihood
 d <- d %>%
-  mutate(likelihood = dbinom(x = 2, size = 10, prob = prob), 
+  mutate(likelihood = dbinom(x = table(toss)[1], size = 10, prob = prob), 
          likelihood = likelihood/sum(likelihood)) 
 
 # Plot
@@ -240,6 +240,7 @@ d %>%
   gather(key, value, -prob) %>%
   ggplot(aes(x = prob, y = value, color = key)) +
   geom_line() +
+  scale_color_manual(values = c("darkblue", "red")) +
   theme_minimal() +
   labs(x = expr(theta), 
        y = "", 

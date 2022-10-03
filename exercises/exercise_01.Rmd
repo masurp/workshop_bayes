@@ -181,7 +181,7 @@ This is our date (= observable evidence). Now we would like to compute a likelih
 ```{r}
 # Compute likelihood
 d <- d %>%
-  mutate(likelihood = dbinom(x = 2, size = 10, prob = prob), 
+  mutate(likelihood = dbinom(x = table(toss)[1], size = 10, prob = prob), 
          likelihood = likelihood/sum(likelihood)) 
 
 # Plot
@@ -189,6 +189,7 @@ d %>%
   gather(key, value, -prob) %>%
   ggplot(aes(x = prob, y = value, color = key)) +
   geom_line() +
+  scale_color_manual(values = c("darkblue", "red")) +
   theme_minimal() +
   labs(x = expr(theta), 
        y = "", 
@@ -222,6 +223,8 @@ d %>%
 As we can see, the likelihood adjusted the prior belief slightly. The posterior distribution now suggest a somewhat biased coin that shows tails slightly more often than heads. 
 
 Yet, it should be clearly visible that we do not fully base our posterior belief on the data, the prior actually has a considerably influence on our posterior belief. And why should it not? I am sure everyone will agree that the data here is less informative than our experience of how coins generally fall...
+
+
 
 **Question:** Let's practice. Let's say we roll the dice again ten times. Can we use our previous posterior as new prior and our new data as new likelihood? How does the posterior look like after ? And what happens if we toss the coin 100 times?
 
