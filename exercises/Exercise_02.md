@@ -158,10 +158,7 @@ install.packages(c("bayestestR", "tidybayes", "bayesplot", "insight"))
 
 ``` r
 library(tidyverse)
-library(rstan)
 library(brms)
-library(bayestestR)
-library(insight)
 
 # Fit model
 model <- brm(Sepal.Length ~ Petal.Length, data = iris)
@@ -170,6 +167,6 @@ model <- brm(Sepal.Length ~ Petal.Length, data = iris)
 summary(model)
 
 # Plot posterior distribution
-posteriors <- get_parameters(model)
+posteriors <- as_draws_df(model)
 qplot(posteriors$b_Petal.Length)
 ```
