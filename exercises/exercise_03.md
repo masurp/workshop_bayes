@@ -31,6 +31,8 @@ Philipp Masur
         Equivalence (ROPE)</a>
     -   <a href="#probability-of-direction"
         id="toc-probability-of-direction">Probability of direction</a>
+    -   <a href="#predictive-check" id="toc-predictive-check">Predictive
+        Check</a>
 -   <a href="#exercise" id="toc-exercise">Exercise</a>
 
 # Introduction
@@ -170,7 +172,11 @@ actually fitting process will take a bit longer that you might be used
 to as MCMC chains have to be simulated.
 
 Likewise, we can use the summary function to produce a first informative
-overview of the results.
+overview of the results. To keep it simple, we are going to investigate
+the relationship between two of the post-manipulation measures: Norm
+perceptions (perceptions) and intention to disclose oneself (behavior).
+The assumption is that the more people perceive the majority to disclose
+themselves, the more likely they are to disclose themselves.
 
 ``` r
 m1 <- brm(behavior ~ perceptions, data = d)
@@ -473,7 +479,39 @@ plot(dir)
 plot(p_direction(rnorm(1000, 0.1, .2)))
 ```
 
+## Predictive Check
+
+``` r
+pp_check(simple_model, nsamples = 100)
+```
+
 # Exercise
+
+**Let’s practice what we just learned!**
+
+In the example above, we have investigated the relationship between two
+of the post-experiment measures. Of course, it is way more interesting
+to test the actual effect of the manipulations. Let us create a full
+regression model in which we include both manipulations as independent
+variables (perhaps even including their interaction) as well as all
+control variables that we may find useful to include. Similar to
+Frequentist linear regression, we can of course use a stepwise approach
+and start with simpler models first and then gradually add predictors.
+The function `bayes_R2()` allows to compute a Bayesian equivalent of
+![R^2](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;R%5E2 "R^2")
+and could thus be used to compare explanatory power. So in sum, engage
+with the following steps:
+
+1.  Build meaningful models to predict the intention to disclose
+2.  Specify meaningful priors if possible (if you leave out those where
+    you have now assumptions, the model will use a weakly informative
+    default).
+3.  Extract posterior for the relevant effects:
+    -   Effect of the norm manipulation on intention to disclose
+    -   Effect of the profile manipulation on the intention to disclose
+    -   Interaction between both?
+4.  Test whether these effects lie outside of a meaningful ROPE (e.g.,
+    -.1 to .1 = larger than small effects)
 
 ``` r
 # Code here
