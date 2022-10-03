@@ -64,7 +64,7 @@ replicate(n = 2, expr = sample(c(1:100), 2)) %>% as.vector
 
 # Sampling from distributions
 
-For exemplifying some Bayesian Basics, it is important to understand that we can also sample values from a distribution (that can be mathematically described). 
+To exemplify some Bayesian Basics, it is important to understand that we can also sample values from a distribution (that can be mathematically described). 
 
 ## Random generation of numbers drawn from a distribution
 
@@ -86,7 +86,7 @@ rbinom(n = 1, size = 10, .5)
 replicate(10, rbinom(n = 1, size = 10, .5))
 ```
 
-**Question:** Produce a beta distribution with n = 1000 that corresponds to a normal distribution. How would you plot this distribution? (Don't forget to load packages that you might need)
+**Question:** Produce a beta distribution with n = 1000 that corresponds to a normal (Gaussian) distribution. How would you plot this distribution? (Don't forget to load packages that you might need)
 
 ```{r}
 # Code here
@@ -95,7 +95,7 @@ replicate(10, rbinom(n = 1, size = 10, .5))
 
 ## Density functions
 
-Remember the coin toss? How can we estimate the probability of observing 4 heads out of 10 tosses if the probability of success is assumed to be 50%? Well, the `dinom()` function can help us to estimate the probability!
+Remember the coin toss? How can we estimate the probability of observing 4 heads out of 10 tosses if the probability of success is assumed to be 50%? Well, the `dinom()` function can help us to estimate that probability!
 
 ```{r}
 dbinom(x = 4, size = 10, prob = .5)
@@ -125,11 +125,11 @@ ggplot(NULL, aes(x = x, y = y)) +
 
 # The coin toss example
 
-Let us recompute the coin toss example that we discussed in the lecture earlier. 
+Let us consider the classical coin toss example.
 
 ## Prior belief
 
-In a first step, let us compute our prior belief that the coin is probably fair. In other words, there should be a high probability that we observe heads 50% of the time. We can do so by creating a beta distribution, centered around .50 and a steep decrease for values lower and higher. We immediately standardize the prior values to make sure we can compare them to a potential likelihood later. 
+In a first step, let us compute our prior belief that the coin is "fair". In other words, there should be a high probability that we observe heads 50% of the time. We can do so by creating a beta distribution, centered around .50 and a steep decrease for values lower and higher. We immediately standardize the prior values to make sure we can compare them to a potential likelihood later. 
 
 ```{r}
 d <- tibble(prob = seq(0, 1, by = .001),     
@@ -157,7 +157,7 @@ d %>%
 
 ## Likelihood
 
-As learned earlier, we write code the simulates a coin toss. By repeatedly sampling from a vector with two options ("heads" and "tails"), we get a vector that represents our coin tosses. I am using the function `set.seed()` here to make this coin tossing reproducable. Feel free to use a different value and see how it affects the outcome. 
+As learned earlier, we write code the simulates a coin toss. By repeatedly sampling from a vector with two options ("heads" and "tails"), we get a vector that represents our coin tosses. I am using the function `set.seed()` here to make this coin tossing reproducible. Feel free to use a different value and see how it affects the outcome. 
 
 ```{r}
 # Coin toss
