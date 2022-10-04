@@ -31,8 +31,8 @@ Philipp Masur
         Equivalence (ROPE)</a>
     -   <a href="#probability-of-direction"
         id="toc-probability-of-direction">Probability of direction</a>
-    -   <a href="#predictive-check" id="toc-predictive-check">Predictive
-        Check</a>
+    -   <a href="#posterior-predictive-check"
+        id="toc-posterior-predictive-check">Posterior Predictive Check</a>
 -   <a href="#exercise" id="toc-exercise">Exercise</a>
 
 # Introduction
@@ -152,6 +152,7 @@ describe(d$age)
 table(d$gender)
 table(d$edu)
 
+# Small recoding
 d <- d %>%
   mutate(gender = ifelse(gender == 2, NA, gender),
          edu = edu-1)
@@ -222,11 +223,12 @@ a standard scatter plot. Here, we better sample from our posterior as
 posterior %>%
   ggplot(aes(x = b_perceptions)) +
   geom_histogram(color = "white", fill = "steelblue") +
-  theme_classic()
+  theme_classic() +
+  labs(x = "Effect of norm perceptions on intention to disclose")
 
 # Regression lines
 posterior %>%
-  sample_n(size = 100) %>%
+  sample_n(size = 200) %>%
   ggplot() +
   geom_point(data = d,
              aes(x = perceptions, y = behavior),
@@ -234,7 +236,7 @@ posterior %>%
   geom_abline(aes(intercept = b_Intercept, 
                   slope = b_perceptions, 
                   group = .draw),
-              color = "grey50", size = 1/4, alpha = .3) +
+              color = "grey50", size = 1/4, alpha = .1) +
   theme_classic()
 ```
 
@@ -260,19 +262,19 @@ When you run `get_prior()`, a table is returned with a few columns. Each
 row corresponds to one model parameter. For now, we focus on the first
 three (prior, class, coef).
 
-*prior*: tells you which prior probability distributions are set as
-default by brms. For our model, the first two default priors are (flat),
-i.e. uniform distributions (all values are equally probable). The other
-two priors are Student-t distributions. This is what we will want to
-change to something more appropriate.
+-   *prior*: tells you which prior probability distributions are set as
+    default by brms. For our model, the first two default priors are
+    (flat), i.e. uniform distributions (all values are equally
+    probable). The other two priors are Student-t distributions. This is
+    what we will want to change to something more appropriate.
 
-*class:* indicates the type of model parameter: Intercept is the model
-intercept, b indicates a predictor term, and sigma the model’s residual
-standard deviation.
+-   *class:* indicates the type of model parameter: Intercept is the
+    model intercept, b indicates a predictor term, and sigma the model’s
+    residual standard deviation.
 
-*coef:* indicates to which model predictor the prior is assigned. In our
-model above, there’s only one predictor (perceptions), and that’s what
-you can see in the output.
+-   *coef:* indicates to which model predictor the prior is assigned. In
+    our model above, there’s only one predictor (perceptions), and
+    that’s what you can see in the output.
 
 Now, we want to change these priors to more appropriate prior
 assumptions. For our model, we need three priors: for the Intercept, the
@@ -323,11 +325,12 @@ m2 <- brm(formula = behavior_std ~ perceptions_std,
           sample_prior = T,  # This ensure that we can also draw from the prior (helps with visualization)
           data = d)
 
+# Results
 summary(m2)
 ```
 
 The median effect size of the relationship between perceptions and
-behaviors is b = .55 (95% HDI\[.49, .62\]). Did anyone use differnet
+behaviors is b = .55 (95% HDI\[.49, .62\]). Did anyone use different
 priors? What are your results?
 
 Let’s quickly check how the data updated our prior assumption.
@@ -345,6 +348,7 @@ bind_rows(posteriors, priors)%>%
   ggplot(aes(x = b_perceptions_std, fill = type)) +
   geom_density(alpha = .8) +
   theme_classic() +
+  xlim(-1, 1) +
   labs(x = expr(theta), y = "", fill = "") +
   scale_fill_manual(values = c("steelblue", "grey"))
 ```
@@ -370,7 +374,7 @@ mcmc_trace(draws,
 ```
 
 Based on these plots, we are not concerned that the chains did not
-converge. This is how they should look like.
+converge. This is how these trace plots should look like.
 
 ## Rhat
 
@@ -461,9 +465,20 @@ rope(m2, range = c(.4,.6), ci = c(.9, .95))
 Of course, we can also plot a ROPE testing approach.
 
 ``` r
-plot(rope(m2, range = c(-.1, .1), ci = .95)) +
+a <- plot(rope(m2, range = c(-.1, .1), ci = .95)) +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  xlim(-.2, .8)
+  xlim(-.2, .8) +
+  labs(caption = "Note: ROPE [-.10, .10]") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+b <- plot(rope(m2, range = c(.4, .6), ci = .95)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  xlim(-.2, .8) +
+  labs(caption = "Note: ROPE [.40, .60]", title = "") +
+  theme_minimal()
+
+cowplot::plot_grid(a, b, axis = "l", align = "v", rel_widths = c(1.5,2))
 ```
 
 ## Probability of direction
@@ -475,15 +490,25 @@ of the effect being in a certain direction.
 dir <- p_direction(draws$b_perceptions_std, null = 0)
 plot(dir)
 
-# Just to exemplify
+# Just to exemplify a case that is less certain
 plot(p_direction(rnorm(1000, 0.1, .2)))
 ```
 
-## Predictive Check
+## Posterior Predictive Check
+
+As a final step, we can simulate replicated data under the fitted model
+and then compare these to the observed data. These so-called posterior
+predictive checks help to identify systematic discrepancies between real
+and simulated data.
 
 ``` r
-pp_check(simple_model, nsamples = 100)
+pp_check(m2, ndraws = 100) + theme_minimal()
 ```
+
+As we can see here, the fitted model does not yet replicate the data
+well. The reason is somewhat straight-forward: We are looking at
+post-experimental measures who have been affected by the manipulations.
+So let’s dive deeper into the data set!
 
 # Exercise
 
