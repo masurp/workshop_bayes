@@ -64,32 +64,7 @@ output:
 
 ```
 
-# Who am I?
 
-.pull-left2[
-
-![](https://philippmasur.de/wp-content/uploads/2020/08/Masur_Interview_quer-copy-2.jpg)
-
-]
-
-.pull-right2[
-
-### Dr. Philipp K. Masur
-
-- Assistant Professor at the Vrije Universiteit Amsterdam
-
-- Research Interests
-    
-    - Privacy and Self-Disclosure 
-    - Social Influence and Social Norms on Social Media
-    - Media Literacy
-    - Quantitative Methodologies
-
-- Website: www.philippmasur.de | Twitter: @masurphil
-
-- Mail: p.k.masur@vu.nl
-
-]
 
 ---
 
@@ -144,17 +119,18 @@ Any prior experience?
 ### Monday
 
 ```{r, echo = F}
+library(knitr)
 tribble(
   ~Time, ~Topic,
-  "[9:00 - 9:30:](#s1)" , "Welcome", 
-  "[9:30 - 10:30:](#s2)" , "An Introductory Example",  
-  "[10:30 - 12:00.](#s3)" , "Basics of Bayesian Statistics",	
-  "[12:00 -  13:00.](#s4)", "Markov Chain Monte Carlo",
-  "13:00 - 14:00:" , "Lunch",	
-  "[14:00 - 14:45:](#s5)" , "Bayesian Inference vs. NHST",
-  "[14:45 - 15:30:](#s6)" , "Subjective Beliefs and Knowledge Cumulation", 
-  "15:30 - 16:00:" , "Coffee",
-  "[16:00 - 17:00:](#s7)" , "Getting started with 'brms'"
+  "9:00 - 9:30:" , "Welcome", 
+  "9:30 - 10:30:" , "An Introductory Example",  
+  "10:30 - 12:00:" , "Basics of Bayesian Statistics",
+  "12:00 -  13:00:", "R: Exercise I",
+  "13:00 - 14:00:" , "Lunch Break",	
+  "14:00 - 14:45:" , "Markov Chain Monte Carlo",
+  "14:45 - 15:30:" , "Bayesian Inference vs. NHST", 
+  "15:30 - 16:00:" , "Coffee Break",
+  "16:00 - 17:00:" , "R: Exercise II"
 ) %>% kable(format = "markdown")
 ```
 
@@ -167,15 +143,15 @@ tribble(
 ```{r, echo = F}
 tribble(
   ~Time, ~Topic,
-  "[9:00 - 9:30:](#s1)" , "Short Recap", 
-  "[9:30 - 10:30:](#s2)" , "Exercise I",  
-  "[10:30 - 11:30.](#s3)" , "Simple and Multiple Regression",	
-  "[11:30 -  13:00.](#s4)", "Exercise II",
-  "13:00 - 14:00:" , "Lunch",	
-  "[14:00 - 14:45:](#s5)" , "Multilevel Regression",	
-  "[14:45 - 15:30:](#s6)" , "Exercise III", 
-  "15:30 - 16:00:" , "Coffee",
-  "[16:00 - 17:00:](#s7)" , "Q&A'"
+  "9:00 - 10:00:" , "Subjective Beliefs and Knowledge Cumulation", 
+  "10:00 - 10:30:" , "Short recap of Day 1",  
+  "10:30 - 11:30:" , "Simple and Multiple Regression",	
+  "11:30 -  13:00:", "R: Exercise III",
+  "13:00 - 14:00:" , "Lunch Break",	
+  "14:00 - 14:45:" , "Multilevel Regression",	
+  "14:45 - 15:30:" , "R: Exercise IV", 
+  "15:30 - 16:00:" , "Coffee Break",
+  "16:00 - 17:00:" , "Q&A"
 ) %>% kable(format = "markdown")
 ```
 
@@ -2350,7 +2326,7 @@ summary(m_freq)$coef[1,]
 ```{r pp, eval = F}
 library(bayesplot)
 pp_check(m_bay, 
-         nsamples = 100) + 
+         ndraws = 100) + 
   theme_tidybayes()
 ```
 
@@ -2428,26 +2404,108 @@ plotPriorPost(m_bay2, b_perceptions_std) + xlim(-5, 5)
 
 ---
 
-# What about a bit more information?
+# Quantifying prior beliefs as distribution
 
 .pull-left[
 
-- It should be obvious that a weakly informative prior is hardly appropriate
+- A central aspect of Bayesian statistics and particular when working with regression models refers to "quantifying" prior beliefs as a distribution of probable parameter ($\theta$).
+
+- We already talked about this earlier (remember the coin toss example), but let's again revisit this central idea.
+
+- In most cases, we may think of a parameter distribution as a normal distribution (which we can easily specify in R and in Stan).
+
+```{r, eval = F}
+dnorm(x, 0, 1) # R
+normal(0, 1)   # Stan
+```
+
+- Our best guess is then the mean of the distribution, our uncertainty is represented by the standard deviation. 
+
+]
+
+.pull-right[
+```{r, echo = F}
+x <- seq(-5, 5, by = .001)
+y1 <- dnorm(x, 0, 10)
+y2 <- dnorm(x, 0, 2)
+y3 <- dnorm(x, 0, 0.75)
+y4 <- dnorm(x, .3, .25)
+
+data.frame(x, y1, y2, y3, y4) %>%
+  gather(key, value, -x) %>%
+  mutate(key = factor(key, levels = c("y1", "y2", "y3", "y4"))) %>%
+  mutate(key = recode(key, y1 = "uninformative/flat prior", y2 = "weakly informative prior", y3 = "informative prior", y4 = "highly informative prior")) %>%
+  ggplot(aes(x = x, y = value, color = key)) +
+  geom_line() +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "grey", alpha = .4) +
+  geom_vline(xintercept = .3, linetype = "dashed", color = "violet", alpha = .5) +
+  theme_classic() +
+  xlim(-2, 2) +
+  labs(x = expr(theta), y = "", color = "")
+```
+
+]
+
+
+---
+
+# Our beliefs do not necessarily have to be normally distributed...
+
+.pull-left[
+
+- In some cases, it may make sense to not use a normal distribution, e.g., if we want to indicate our strong belief that the effect should be positive
+
+- Technically, any prior is possible, the difficulty is to justify it based on existing literature! 
+
+]
+
+.pull-right[
+
+```{r, echo = F}
+library(extraDistr)
+z1 <- dbeta(x, 2, 4)
+z2 <- dhcauchy(x, 1)
+
+data.frame(x, z1, z2) %>%
+  gather(key, value, -x) %>%
+  mutate(key = factor(key, levels = c("z1", "z2"))) %>%
+  mutate(key = recode(key, z1 = "skewed prior", z2 = "half cauchy prior")) %>%
+  ggplot(aes(x = x, y = value, color = key)) +
+  geom_line() +
+  theme_classic() +
+  xlim(-2, 2) +
+  labs(x = expr(theta), y = "", color = "")
+
+```
+
+]
+
+
+---
+
+# So what about a bit more information for our example?
+
+.pull-left[
+
+- It should have been obvious that a weakly informative prior (the default) is hardly appropriate
 
 - For example, a meta analysis by Rains et al. (2018) of 60 years of communication research suggest an average effect of r = 0.2. Why not include this prior information in the model?
 
 - We keep the distribution fairly wide, but I think we can all agree that values > .5 are rather unlikely. 
 
-```{r prior2, eval = F}
+```{r prior2, eval = F, echo = F}
 tibble(x = seq(-1, 1, by = .001),
-       "weakly informative" = dnorm(x = x, mean = 0, sd = 10),
-       "mildy informative" = dnorm(x = x, mean = 0.21, sd = .5)) %>%
+       "weakly informative (new prior)" = dnorm(x = x, mean = 0, sd = 10),
+       "mildy informative (original prior)" = dnorm(x = x, mean = 0.21, sd = .5)) %>%
   gather(key, value, -x) %>%
-  ggplot(aes(x = x, y = value, fill = key)) +
-  geom_area(alpha = .8) +
-  geom_vline(xintercept = 0.21, color = "grey", linetype = "dotted") +
-  scale_fill_manual(values = c("steelblue", "grey")) +
-  labs(fill = "", x = expr(theta), y = expr(P(theta))) +
+  ggplot(aes(x = x, y = value, color = key)) +
+  geom_line(alpha = .8) +
+  geom_vline(xintercept = 0.21, color = "darkgrey", linetype = "dotted") +
+  geom_vline(xintercept = 0, color = "lightgrey", linetype = "dotted") +
+  annotate("text", x = .42, y = .5, label = "M = 0.21\n(SD = 0.50)", size = 3) +
+  annotate("text", x = -.18, y = .10, label = "M = 0\n(SD = 10)", size = 3) +
+  scale_color_manual(values = c("steelblue", "grey")) +
+  labs(color = "", x = expr(theta), y = expr(P(theta))) +
   theme_tidybayes()
 ```
 
@@ -2676,11 +2734,120 @@ class: inverse, center, middle
 
 2. Define a **descriptive model** (likelihood) for the relevant data. The mathematical form and its parameters should be meaningful and appropriate to the theoretical purposes of the analysis.
 
-3. Specify a **prior distribution** on the parameters. The prior must pass muster with the audience of the analysis, such as skeptical scientists.
+3. Specify **prior distributions** for the parameters. The prior must pass muster with the audience of the analysis, such as skeptical scientists. In case of doubt, a weakly informative prior is always a good choice.
 
 4. Use Bayesian inference to **re-allocate credibility** across parameter values. Interpret the posterior distribution with respect to theoretically meaningful issues (Estimation Approach).
 
-5. Check that the **posterior predictions** mimic the data with reasonable accuracy. If not, then consider a different descriptive model.
+5. Check whether **MCMC chains converged** and that the **posterior predictions** mimic the data with reasonable accuracy. If not, then consider a different descriptive model.
+
+
+---
+
+# Bayes Benefits I: Prior Beliefs
+
+.pull-left2[
+
+```{r, echo = F}
+x <- seq(-4, 4, by = .001)
+y <- dnorm(x, 0, .5)
+z <- dnorm(x, .5, .2)
+a <- dbeta(x,20, 10)
+
+data.frame(x, y, z, a) %>%
+  gather(key, value, -x) %>%
+  ggplot(aes(x = x, y = value, color = key)) +
+  geom_line() +
+  xlim(-.5, 1) +
+  theme_tidybayes() +
+  labs(x = expr(theta), y = "", color = "") +
+  theme(legend.position = "none")
+```
+
+]
+
+.pull-right2[
+
+- It makes us think more clearly about our prior beliefs
+
+- Specifying priors for our parameters of interest forces us to scrutinize our own assumptions
+
+    - How strongly do you believe in your own hypothesis? Enough to quantify it as a strong prior? 
+    - Is there indeed sufficient (high-quality) previous research to justify the hypothesis/prior?
+
+- Forces us to consider the state of prior knowledge
+
+- Allows for cumulative knowledge creation (so far not really done!)
+
+
+]
+
+---
+
+# Bayes Benefits II: No constraints for model specification 
+
+.pull-left[
+
+- Bayesian modelling is not bound to any particular assumptions (compared to Frequentist statistics)
+
+- Particularly `brms` supports a wide (and I mean really wide!) set of models and families
+
+- Whenever `lmer()` breaks, simply use `brm()` and you will get a result
+
+]
+
+
+.pull-right[
+
+![](img/brms_example.png)
+
+]
+
+---
+
+# Bayes Benefits III: Thinking more clearly about our inferences
+
+
+.pull-left[
+```{r, echo = F}
+draws %>% 
+  ggplot(aes(x = b_perceptions_std, y = 0)) +
+  stat_histinterval(point_interval = mode_hdi, .width = c(.9,.95),
+                    fill = "steelblue", slab_color = "white",
+                    breaks = 40, slab_size = .2, outline_bars=T) +
+  scale_y_continuous(NULL, breaks = NULL) +
+  labs(title = "Highest density intervals",
+       x = expression(theta)) +
+  theme_tidybayes() 
+```
+]
+
+.pull-right[
+
+```{r, echo = F}
+draws %>%
+  mutate(col = ifelse(b_perceptions_std < .1, "red", "steelblue")) %>%
+  ggplot(aes(x = b_perceptions_std, fill = col)) +
+  geom_rect(aes(xmin=-.1,xmax=.1,ymin=0,ymax=Inf),fill="grey",alpha=0.9) +
+  geom_histogram(color = "white", bins = 100) +
+  scale_fill_manual(values = c("red", "steelblue")) +
+  geom_vline(xintercept = 0, linetype = "dashed")  +
+  scale_y_continuous(NULL, breaks = NULL) +
+  labs(title = "Region of practical equivalence",
+       x = expression(theta)) +
+  theme_tidybayes() +
+  theme(legend.position = "none")
+```
+
+]
+
+
+---
+
+class: inverse, center, middle
+
+# Let's practice in R!
+
+Perhaps it will turn you into a "Bayesian"... 
 
 
 ---
