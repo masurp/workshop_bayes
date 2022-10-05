@@ -1,5 +1,6 @@
 ---
-title: "Workshop - Introduction to Bayesian Statistic Using R"
+title: "Introduction to Bayesian Statistic Using R"
+subtitle: "Workshop at the IfP Uni Mainz"
 output: github_document
 ---
 
