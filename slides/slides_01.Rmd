@@ -31,12 +31,12 @@ output:
 
 .pull-left3 {
   float: left;
-  width: 45%;
+  width: 40%;
   padding-right: 5% 
 }
 .pull-right3 {
   float: right;
-  width: 45%;
+  width: 40%;
   padding-left: 5% 
 }
 
@@ -64,6 +64,23 @@ output:
 
 ```
 
+
+.pull-left3[
+![](https://images.squarespace-cdn.com/content/v1/54e50c15e4b058fc6806d068/1424758230390-JHF0J62WOJHJ6TIQ772M/image-asset.jpeg)
+
+![](https://miro.medium.com/max/602/1*sVPccqtQYtrQwcP2cxLgdQ.jpeg)
+
+]
+
+.pull-right3[
+
+![](https://thinkingbeyondtheboxblog.files.wordpress.com/2018/01/bashing-p-values.jpg)
+
+
+![](https://i.stack.imgur.com/n2EuU.jpg)
+
+
+]
 
 
 ---
@@ -105,7 +122,7 @@ Any prior experience?
 
 - Introduction to (generalized) linear models
 
-- Bayes factors (a.k.a Bayesian p-values)
+- Bayes factors
 
 - More complex models
 
