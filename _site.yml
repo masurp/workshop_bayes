@@ -6,11 +6,11 @@ navbar:
   right:
    - text: "Slides"
      href: https://masurp.github.io/workshop_bayes/slides/slides_01.html
-   - text: "Exercises & Material"
+   - text: "Exercises"
      href: exercises.html
    - text: "Contact"
      href: contact.html
-   - text: "Source code"
+   - text: "Source Code"
      href: "https://github.com/masurp/workshop_bayes"
 output:
   html_document:
