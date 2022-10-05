@@ -5,7 +5,7 @@ navbar:
   type: inverse
   right:
    - text: "Slides"
-     href: https://masurp.github.io/workshop_bayes/slides/slides.html#1
+     href: https://masurp.github.io/workshop_bayes/slides/slides_01.html
    - text: "Exercises"
      href: overview.html
    - text: "Material"
