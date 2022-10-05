@@ -3,6 +3,12 @@ title: "Exercises & Material"
 output: github_document
 ---
 
+<div style = "padding: 2em;">
+<img src="https://github.com/masurp/workshop_bayes/blob/main/slides/slides_01_files/figure-html/unnamed-chunk-51-1.png?raw=true" width = 380 align="right" />
+</div> 
+
+
+
 On this page, you will all relevant materials for the workshop. The procedure is straight-forward: Click on the respective exercise below. This will open the exercise which contains a markdown document that includes comments and R code chunks that we will go through together. 
 
 | Exercise | Topic |

@@ -5,11 +5,11 @@ output: github_document
 ---
 
 
-<div style = "padding: 3em;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
-</div>
 
-Welcome to the 2022 workshop on *Bayesian Statistics Using R*. This page will be used to distribute the slides, handouts, and other materials for this course. All material is free to re-use under the [CC-BY](https://github.com/masurp/workshop_bayes/blob/main/LICENSE.md) license.
+
+<div style = "padding: 2em;">
+<img src="https://github.com/masurp/workshop_bayes/blob/main/slides/slides_01_files/figure-html/coin-out4-1.png?raw=true" width = 380 align="right" />
+</div> Welcome to the 2022 workshop on *Bayesian Statistics Using R*. This page will be used to distribute the slides, handouts, and other materials for this course. All material is free to re-use under the [CC-BY](https://github.com/masurp/workshop_bayes/blob/main/LICENSE.md) license.
 
 In this workshop, you will receive an in-depth introduction to the Bayesian Framework of Data Analysis. You will learn about the infamous "Bayes Theorem" and how it can be used for "Bayesian Inference".  More practically, you will further learn how to run (generalized) linear models using a Bayesian framework as implemented in the R package [`brms`](http://paul-buerkner.github.io/brms/index.html) (Bürckner, 2017). You will learn how to specify models, appropriate priors, and how to interpret respective results. Thereby we will get to know different methods to draw probabilistic inferences from posterier distributions, moving beyond standard frequentist null hypothesis testing.
 

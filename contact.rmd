@@ -2,9 +2,15 @@
 title: "Contact"
 ---
 
-Do you have any questions? Please contact us via mail.
+<div style = "padding: 2em;">
+<img src="https://github.com/masurp/workshop_bayes/blob/main/slides/slides_01_files/figure-html/unnamed-chunk-41-1.png?raw=true" width = 320 align="right" />
+</div> 
+
+Do you have any questions? Please contact me via mail. 
 
 <br>
+
+
 
 
 #### Philipp K. Masur
