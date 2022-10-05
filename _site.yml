@@ -5,7 +5,7 @@ navbar:
   type: inverse
   right:
    - text: "Slides"
-     href: https://masurp.github.io/workshop_bayes/slides/slides_01.html
+     href: https://masurp.github.io/workshop_bayes/slides/slides_01.html#1
    - text: "Exercises"
      href: exercises.html
    - text: "Contact"
@@ -14,4 +14,4 @@ navbar:
      href: "https://github.com/masurp/workshop_bayes"
 output:
   html_document:
-     theme: cosmo
+     theme:  cosmo
