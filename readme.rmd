@@ -4,8 +4,8 @@ output: github_document
 ---
 
 
-<div style = "padding: 3em;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
+<div style = "padding: 2em;">
+<img src="https://github.com/masurp/workshop_bayes/blob/main/slides/slides_01_files/figure-html/coin-out4-1.png?raw=true" width = 380 align="right" />
 </div>
 
 Welcome to the 2022 workshop on *Bayesian Statistics Using R*. This page will be used to distribute the slides, handouts, and other materials for this course. All material is free to re-use under the [CC-BY](https://github.com/masurp/workshop_bayes/blob/main/LICENSE.md) license.

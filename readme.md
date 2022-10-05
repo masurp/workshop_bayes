@@ -1,9 +1,9 @@
 Workshop - Introduction to Bayesian Statistic Using R
 ================
 
-<div style="padding: 3em;">
+<div style="padding: 2em;">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
+<img src="https://github.com/masurp/workshop_bayes/blob/main/slides/slides_01_files/figure-html/coin-out4-1.png?raw=true" width = 380 align="right" />
 
 </div>
 
@@ -26,7 +26,7 @@ moving beyond standard frequentist null hypothesis testing.
 
 ## Preparation
 
-<div style="padding: 3em;">
+<div style="padding: 2em;">
 
 <img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png" width = 100 align="right" />
 
@@ -38,7 +38,8 @@ For this 2-day workshop, I expect you…
     look at this [getting
     started](https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_basics_1_getting_started.md)
     tutorial, which walks you through the installation and helps you get
-    some first hands-on experience using R.
+    some first hands-on experience using R. You do not need to install the packages
+    that we will use in the workship yet. We will install those together in the workshop.
 
 2.  to have some basic knowledge of R and particularly data wrangling
     skills (at best, some knowledge about the `tidyverse`). If this is
@@ -65,26 +66,26 @@ For this 2-day workshop, I expect you…
 
 | Time                  | Topic                         |
 |:----------------------|:------------------------------|
-| [9:00 - 9:30:](#s1)   | Welcome                       |
-| [9:30 - 10:30:](#s2)  | An Introductory Example       |
-| [10:30 - 12:00.](#s3) | Basics of Bayesian Statistics |
-| [12:00 - 13:00.](#s4) | R: Exercise I                 |
-| 13:00 - 14:00:        | Lunch                         |
-| [14:00 - 14:45:](#s5) | Markov Chain Monte Carlo      |
-| [14:45 - 15:30:](#s6) | Bayesian Inference vs. NHST   |
-| 15:30 - 16:00:        | Coffee                        |
-| [16:00 - 17:00:](#s7) | R: Exercise II                |
+| 9:00 - 9:30:   | Welcome                       |
+| 9:30 - 10:30:  | An Introductory Example       |
+| 10:30 - 12:00: | Basics of Bayesian Statistics |
+| 12:00 - 13:00: | R: Exercise I                 |
+| 13:00 - 14:00: | Lunch  Break                  |
+| 14:00 - 14:45: | Markov Chain Monte Carlo      |
+| 14:45 - 15:30: | Bayesian Inference vs. NHST   |
+| 15:30 - 16:00: | Coffee Break                  |
+| 16:00 - 17:00: | R: Exercise II                |
 
 ### Tuesday, 11th October 2022
 
 | Time                  | Topic                                       |
 |:----------------------|:--------------------------------------------|
-| [9:00 - 10:00:](#s1)  | Subjective Beliefs and Knowledge Cumulation |
-| [10:00 - 10:30:](#s2) | Short recap of Day 1                        |
-| [10:30 - 11:30.](#s3) | Simple and Multiple Regression              |
-| [11:30 - 13:00.](#s4) | R: Exercise III                             |
-| 13:00 - 14:00:        | Lunch                                       |
-| [14:00 - 14:45:](#s5) | Multilevel Regression                       |
-| [14:45 - 15:30:](#s6) | R: Exercise IV                              |
-| 15:30 - 16:00:        | Coffee                                      |
-| [16:00 - 17:00:](#s7) | Q&A                                         |
+| 9:00 - 10:00:  | Subjective Beliefs and Knowledge Cumulation |
+| 10:00 - 10:30: | Short recap of Day 1                        |
+| 10:30 - 11:30: | Simple and Multiple Regression              |
+| 11:30 - 13:00: | R: Exercise III                             |
+| 13:00 - 14:00: | Lunch Break                                 |
+| 14:00 - 14:45: | Multilevel Regression                       |
+| 14:45 - 15:30: | R: Exercise IV                              |
+| 15:30 - 16:00: | Coffee  Brak                                |
+| 16:00 - 17:00: | Q&A                                         |
