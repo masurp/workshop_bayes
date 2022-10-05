@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -295,12 +297,10 @@ priors, and how to interpret respective results. Thereby we will get to
 know different methods to draw probabilistic inferences from posterier
 distributions, moving beyond standard frequentist null hypothesis
 testing.</p>
+<p><br><br></p>
 <div id="preparation" class="section level2">
 <h2>Preparation</h2>
 <p>For this 2-day workshop, I expect you…</p>
-<div style="padding: 3em;">
-<p><img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png" width = 100 align="right" /></p>
-</div>
 <ol style="list-style-type: decimal">
 <li><p>to have R and RStudio installed. If you haven’t done so yet, have
 a look at this <a
@@ -324,6 +324,7 @@ practical part of the workshop, we will fit such models in R.</p></li>
 </ol>
 <p><strong>Note:</strong> The workshop will NOT provide an introduction
 to R!</p>
+<p><br><br></p>
 </div>
 <div id="schedule" class="section level2">
 <h2>Schedule</h2>
@@ -331,96 +332,177 @@ to R!</p>
 <h3>Monday, 10th October 2022</h3>
 <table>
 <thead>
-<tr class="header">
-<th align="left">Time</th>
-<th align="left">Topic</th>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:left;">
+Topic
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left"><a href="#s1">9:00 - 9:30:</a></td>
-<td align="left">Welcome</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s1">9:00 - 9:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Welcome
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s2">9:30 - 10:30:</a></td>
-<td align="left">An Introductory Example</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s2">9:30 - 10:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+An Introductory Example
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s3">10:30 - 12:00:</a></td>
-<td align="left">Basics of Bayesian Statistics</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s3">10:30 - 12:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Basics of Bayesian Statistics
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s4">12:00 - 13:00:</a></td>
-<td align="left">R: Exercise I</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s4">12:00 - 13:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+R: Exercise I
+</td>
 </tr>
-<tr class="odd">
-<td align="left">13:00 - 14:00:</td>
-<td align="left">Lunch</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+13:00 - 14:00:
+</td>
+<td style="text-align:left;width: 25em; ">
+Lunch
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s5">14:00 - 14:45:</a></td>
-<td align="left">Markov Chain Monte Carlo</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s5">14:00 - 14:45:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Markov Chain Monte Carlo
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s6">14:45 - 15:30:</a></td>
-<td align="left">Bayesian Inference vs. NHST</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s6">14:45 - 15:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Bayesian Inference vs. NHST
+</td>
 </tr>
-<tr class="even">
-<td align="left">15:30 - 16:00:</td>
-<td align="left">Coffee</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+15:30 - 16:00:
+</td>
+<td style="text-align:left;width: 25em; ">
+Coffee
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s7">16:00 - 17:00:</a></td>
-<td align="left">R: Exercise II</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s7">16:00 - 17:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+R: Exercise II
+</td>
 </tr>
 </tbody>
 </table>
+<p><br></p>
 </div>
 <div id="tuesday-11th-october-2022" class="section level3">
 <h3>Tuesday, 11th October 2022</h3>
 <table>
 <thead>
-<tr class="header">
-<th align="left">Time</th>
-<th align="left">Topic</th>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:left;">
+Topic
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left"><a href="#s1">9:00 - 10:00:</a></td>
-<td align="left">Subjective Beliefs and Knowledge Cumulation</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s1">9:00 - 10:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Subjective Beliefs and Knowledge Cumulation
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s2">10:00 - 10:30:</a></td>
-<td align="left">Short recap of Day 1</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s2">10:00 - 10:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Short recap of Day 1
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s3">10:30 - 11:30:</a></td>
-<td align="left">Simple and Multiple Regression</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s3">10:30 - 11:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Simple and Multiple Regression
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s4">11:30 - 13:00:</a></td>
-<td align="left">R: Exercise III</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s4">11:30 - 13:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+R: Exercise III
+</td>
 </tr>
-<tr class="odd">
-<td align="left">13:00 - 14:00:</td>
-<td align="left">Lunch</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+13:00 - 14:00:
+</td>
+<td style="text-align:left;width: 25em; ">
+Lunch
+</td>
 </tr>
-<tr class="even">
-<td align="left"><a href="#s5">14:00 - 14:45:</a></td>
-<td align="left">Multilevel Regression</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s5">14:00 - 14:45:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Multilevel Regression
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s6">14:45 - 15:30:</a></td>
-<td align="left">R: Exercise IV</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s6">14:45 - 15:30:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+R: Exercise IV
+</td>
 </tr>
-<tr class="even">
-<td align="left">15:30 - 16:00:</td>
-<td align="left">Coffee</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+15:30 - 16:00:
+</td>
+<td style="text-align:left;width: 25em; ">
+Coffee
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="#s7">16:00 - 17:00:</a></td>
-<td align="left">Q&amp;A</td>
+<tr>
+<td style="text-align:left;width: 10em; ">
+<a href="#s7">16:00 - 17:00:</a>
+</td>
+<td style="text-align:left;width: 25em; ">
+Q&amp;A
+</td>
 </tr>
 </tbody>
 </table>

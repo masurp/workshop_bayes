@@ -6,7 +6,7 @@ output: github_document
 On this page, you will all relevant materials for the workshop. The procedure is straight-forward: Click on the respective exercise below. This will open the exercise which contains a markdown document that includes comments and R code chunks that we will go through together. 
 
 | Exercise | Topic |
-|-----|-----|
+|:--|:-----|
 | Exercise I | [Bayesian Basics and Distributions](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_01.md) |
 | Exercise II | [How to install `brms` and dependencies](https://github.com/masurp/workshop_bayes/blob/main/exercises/Exercise_02.md) |
 | Exercise III | [Simple Regression Analysis in `brms`](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_03.md) |

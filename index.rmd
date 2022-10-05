@@ -13,14 +13,11 @@ Welcome to the 2022 workshop on *Bayesian Statistics Using R*. This page will be
 
 In this workshop, you will receive an in-depth introduction to the Bayesian Framework of Data Analysis. You will learn about the infamous "Bayes Theorem" and how it can be used for "Bayesian Inference".  More practically, you will further learn how to run (generalized) linear models using a Bayesian framework as implemented in the R package [`brms`](http://paul-buerkner.github.io/brms/index.html) (Bürckner, 2017). You will learn how to specify models, appropriate priors, and how to interpret respective results. Thereby we will get to know different methods to draw probabilistic inferences from posterier distributions, moving beyond standard frequentist null hypothesis testing.
 
+<br><br>
 
 ## Preparation
 
 For this 2-day workshop, I expect you... 
-
-<div style = "padding: 3em;">
-<img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png" width = 100 align="right" />
-</div>
 
 1. to have R and RStudio installed. If you haven't done so yet, have a look at this [getting started](https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_basics_1_getting_started.md) tutorial, which walks you through the installation and helps you get some first hands-on experience using R. 
 
@@ -32,6 +29,7 @@ For this 2-day workshop, I expect you...
 
 **Note:** The workshop will NOT provide an introduction to R!
 
+<br><br>
 
 ## Schedule
 
@@ -40,6 +38,7 @@ For this 2-day workshop, I expect you...
 ```{r, echo = F, message = F, warning = F}
 library(tidyverse)
 library(knitr)
+library(kableExtra)
 tribble(
   ~Time, ~Topic,
   "[9:00 - 9:30:](#s1)" , "Welcome", 
@@ -51,10 +50,13 @@ tribble(
   "[14:45 - 15:30:](#s6)" , "Bayesian Inference vs. NHST", 
   "15:30 - 16:00:" , "Coffee",
   "[16:00 - 17:00:](#s7)" , "R: Exercise II"
-) %>% kable(format = "markdown")
+) %>% kable(format = "html", booktabs = T, align = "ll") %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2, width = "25em")
   
 ```
 
+<br>
 
 ### Tuesday, 11th October 2022
 
@@ -70,7 +72,9 @@ tribble(
   "[14:45 - 15:30:](#s6)" , "R: Exercise IV", 
   "15:30 - 16:00:" , "Coffee",
   "[16:00 - 17:00:](#s7)" , "Q&A"
-) %>% kable(format = "markdown")
+) %>% kable(format = "html", booktabs = T, align = "ll") %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2, width = "25em")
 ```
 
 <br><br>
