@@ -16,11 +16,11 @@ In this workshop, you will receive an in-depth introduction to the Bayesian Fram
 
 ## Preparation
 
+For this 2-day workshop, I expect you... 
+
 <div style = "padding: 3em;">
 <img src="https://raw.githubusercontent.com/paul-buerkner/brms/master/man/figures/brms.png" width = 100 align="right" />
 </div>
-
-For this 2-day workshop, I expect you... 
 
 1. to have R and RStudio installed. If you haven't done so yet, have a look at this [getting started](https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_basics_1_getting_started.md) tutorial, which walks you through the installation and helps you get some first hands-on experience using R. 
 
@@ -52,6 +52,7 @@ tribble(
   "15:30 - 16:00:" , "Coffee",
   "[16:00 - 17:00:](#s7)" , "R: Exercise II"
 ) %>% kable(format = "markdown")
+  
 ```
 
 
@@ -72,6 +73,11 @@ tribble(
 ) %>% kable(format = "markdown")
 ```
 
+<br><br>
+<hr>
 
+<p style = "margin-left: auto; margin-right: 0;">
+This course is published under the following [license](https://github.com/masurp/workshop_bayes/blob/main/LICENSE.md). 
+</p>
 
 

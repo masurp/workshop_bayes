@@ -1,0 +1,23 @@
+---
+title: "Contact"
+---
+
+Do you have any questions? Please contact us via mail.
+
+<br>
+
+# Instructor
+
+Philipp K. Masur
+*Vrije Universiteit Amsterdam*
+
+
+[Mail](p.k.masur@vu.nl) | [Website scholar](https://philippmasur.de) | [Twitter](https://twitter.com/MasurPhil)
+
+
+<br><br>
+<hr>
+
+<p style = "margin-left: auto; margin-right: 0;">
+This course is published under the following [license](https://github.com/masurp/workshop_bayes/blob/main/LICENSE.md). 
+</p>
