@@ -19,7 +19,8 @@ In this workshop, you will receive an in-depth introduction to the Bayesian Fram
 
 For this 2-day workshop, I expect you... 
 
-1. to have R and RStudio installed. If you haven't done so yet, have a look at this [getting started](https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_basics_1_getting_started.md) tutorial, which walks you through the installation and helps you get some first hands-on experience using R. 
+1. to have R and RStudio installed. If you haven't done so yet, have a look at this [getting started](https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_basics_1_getting_started.md) tutorial, which walks you through the installation and helps you get some first hands-on experience using R. You do not need to install the packages
+    that we will use in the workship yet. We will install those together in the workshop.
 
 2. to have some basic knowledge of R and particularly data wrangling skills (at best, some knowledge about the `tidyverse`). If this is still new to you, we have several videos and tutorials on our [R course material GitHub page](https://github.com/ccs-amsterdam/r-course-material) that can help you getting started. I would suggest to check out the tutorials on transforming, summarizing, visualizing and reshaping data in the "data wrangling with the tidyverse" category. 
 
