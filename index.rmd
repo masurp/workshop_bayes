@@ -41,17 +41,17 @@ library(knitr)
 library(kableExtra)
 tribble(
   ~Time, ~Topic,
-  "[9:00 - 9:30:](#s1)" , "Welcome", 
-  "[9:30 - 10:30:](#s2)" , "An Introductory Example",  
-  "[10:30 - 12:00:](#s3)" , "Basics of Bayesian Statistics",
-  "[12:00 -  13:00:](#s4)", "R: Exercise I",
-  "13:00 - 14:00:" , "Lunch",	
-  "[14:00 - 14:45:](#s5)" , "Markov Chain Monte Carlo",
-  "[14:45 - 15:30:](#s6)" , "Bayesian Inference vs. NHST", 
-  "15:30 - 16:00:" , "Coffee",
-  "[16:00 - 17:00:](#s7)" , "R: Exercise II"
+  "9:00 - 9:30:" , "Welcome", 
+  "9:30 - 10:30:" , "An Introductory Example",  
+  "10:30 - 12:00:" , "Basics of Bayesian Statistics",
+  "12:00 -  13:00:", "R: Exercise I",
+  "13:00 - 14:00:" , "Lunch Break",	
+  "14:00 - 14:45:" , "Markov Chain Monte Carlo",
+  "14:45 - 15:30:" , "Bayesian Inference vs. NHST", 
+  "15:30 - 16:00:" , "Coffee Break",
+  "16:00 - 17:00:" , "R: Exercise II"
 ) %>% kable(format = "html", booktabs = T, align = "ll") %>%
-  column_spec(1, width = "10em") %>%
+  column_spec(1, width = "7.5em") %>%
   column_spec(2, width = "25em")
   
 ```
@@ -63,17 +63,17 @@ tribble(
 ```{r, echo = F}
 tribble(
   ~Time, ~Topic,
-  "[9:00 - 10:00:](#s1)" , "Subjective Beliefs and Knowledge Cumulation", 
-  "[10:00 - 10:30:](#s2)" , "Short recap of Day 1",  
-  "[10:30 - 11:30:](#s3)" , "Simple and Multiple Regression",	
-  "[11:30 -  13:00:](#s4)", "R: Exercise III",
-  "13:00 - 14:00:" , "Lunch",	
-  "[14:00 - 14:45:](#s5)" , "Multilevel Regression",	
-  "[14:45 - 15:30:](#s6)" , "R: Exercise IV", 
-  "15:30 - 16:00:" , "Coffee",
-  "[16:00 - 17:00:](#s7)" , "Q&A"
+  "9:00 - 10:00:" , "Subjective Beliefs and Knowledge Cumulation", 
+  "10:00 - 10:30:" , "Short recap of Day 1",  
+  "10:30 - 11:30:" , "Simple and Multiple Regression",	
+  "11:30 -  13:00:", "R: Exercise III",
+  "13:00 - 14:00:" , "Lunch Break",	
+  "14:00 - 14:45:" , "Multilevel Regression",	
+  "14:45 - 15:30:" , "R: Exercise IV", 
+  "15:30 - 16:00:" , "Coffee Break",
+  "16:00 - 17:00:" , "Q&A"
 ) %>% kable(format = "html", booktabs = T, align = "ll") %>%
-  column_spec(1, width = "10em") %>%
+  column_spec(1, width = "7.5em") %>%
   column_spec(2, width = "25em")
 ```
 
