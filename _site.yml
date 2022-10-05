@@ -13,6 +13,6 @@ navbar:
    - text: "Contact"
      href: contact.html
    - text: "Source code"
-href: "https://github.com/masurp/VU_CADC"
+     href: "https://github.com/masurp/workshop_bayes"
 output:
   html_document:
