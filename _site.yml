@@ -14,3 +14,4 @@ navbar:
      href: "https://github.com/masurp/workshop_bayes"
 output:
   html_document:
+     theme: cosmo
