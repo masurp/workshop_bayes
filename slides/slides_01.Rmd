@@ -433,12 +433,17 @@ $prior \rightarrow data \rightarrow posterior$
 
 $p(\theta) \rightarrow D \rightarrow p(\theta|D)$
 
+<br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = "400" align="right" />
+
 ]
 
 --
 
 .pull-right2[
 
+<br><br>
 
 - $\theta$  is the relevant parameter that we are interested in (e.g., a effect, a hypothesis, a model...)
 
@@ -1398,6 +1403,44 @@ cowplot::plot_grid(p1, p2, rel_widths = c(4, 1))
 
 .pull-left[
 
+- King Markov is a benevolent autocrat of an island kingdom 
+
+- The king’s island kingdom is displayed in the Figure on the right, with the islands numbered by their relative population sizes
+
+- He wants to visit each island in His kingdom from time to time.
+
+- Everyone agreed that the king should visit each island in proportion to its population size, visiting the largest island 10 times as often as the smallest, for example.
+
+- The Good King Markov wanted a way to fulfill his obligation without planning his travels months ahead of time and further insisted that he only move among adjacent islands, to minimize time spent on the water (sea monsters, etc.)
+
+]
+
+
+.pull-right[
+
+![](img/king_markov.png)
+]
+
+---
+
+# Theory of the travel computation
+
+His advisor engineered a clever solution to these demands and here's how it works:
+
+1. Wherever the King is, each week he decides between staying put for another week or moving to one of the two adjacent islands. To decide his next move, he **flips a coin**.
+
+2. If the coin turns up heads, the King considers moving to the adjacent island clockwise around the archipelago. If the coin turns up tails, he considers instead moving counterclockwise. Call the island the coin nominates **the proposal** island. 
+
+3. Now, to see whether or not he moves to the proposal island, King Markov counts out **a number of seashells** equal to the relative population size of the proposal island. So for example, if the proposal island is number 9, then he counts out 9 seashells. Then he also counts out **a number of stones** equal to the relative population of the current island. So for example, if the current island is number 10, then King Markov ends up holding 10 stones, in addition to the 9 seashells.
+
+4. When there are **more seashells than stones**, King Markov always moves to the proposal island. But if there are fewer shells than stones, he discards a number of stones equal to the number of shells. So for example, if there are 4 shells and 6 stones, he ends up with 4 shells and 6 - 4 = 2 stones. Then he places the shells and the remaining stones in a bag. He reaches in and **randomly pulls out one object**. If it is a shell, he moves to the proposal island. Otherwise, he stays put another week. As a result, the probability that he moves is equal to the number of shells divided by the original number of stones.
+
+---
+
+# Computation of King Markov's travel route
+
+.pull-left[
+
 ```{r}
 set.seed(7)
 num_days  <- 5e4
@@ -1432,7 +1475,6 @@ for (i in 1:num_days) {
 tibble(t = 1:5e4,
        theta = positions) %>% 
   slice(1:500) %>% 
-  
   ggplot(aes(x = theta, y = t)) +
   geom_path(size = 1/2, color = "steelblue") +
   geom_point(size = 1, alpha = .8, color = "steelblue") +
@@ -1440,6 +1482,32 @@ tibble(t = 1:5e4,
   scale_y_log10("Time Step", breaks = c(1, 2, 5, 20, 100, 500)) +
   theme_tidybayes()
 ```
+
+]
+
+---
+# Resulting distribution of time on each island
+
+
+.pull-left[
+```{r, echo = F}
+tibble(t = 1:5e4,
+       island = positions)%>%
+  mutate(island = factor(island)) %>%
+  ggplot(aes(x = island)) +
+  geom_bar(fill = "steelblue") +
+  theme_tidybayes()
+```
+
+]
+
+.pull-right[
+
+- Even though the King seems to move randomly across the archipel, in the end, he visits each island proportional to its population size
+
+- This is of course a fictitious, somewhat artificial example, but it shows that the algorithm works
+
+- Drawing from a posterior distribution is - to a certain degree (slightly more complex) similar to such a random walk
 
 ]
 
@@ -2899,6 +2967,8 @@ draws %>%
 
 # How to report Bayesian results
 
+.pull-left4[
+
 - Overall similar to standard model reporting, but additional consider:
 
 - Justify the use of Bayesian methods (reiterate benefits over other approaches, motify the use of prior)
@@ -2911,6 +2981,14 @@ draws %>%
 
 - Comprehensive interpretation of the posterior (driven by research questions/hypotheses) 
 
+]
+
+
+.pull-right4[
+
+![](https://media.makeameme.org/created/i-have-no-a805046a9b.jpg)
+
+]
 
 ---
 
