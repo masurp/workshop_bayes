@@ -580,7 +580,7 @@ ggplot(data.frame(sample1000.mean)) +
 
 - The p-value tells you how often you would expect to see a test statistic as extreme or more extreme than the one calculated by your statistical test if the null hypothesis of that test was true
 
-<img src="https://media.tenor.com/tvFWFDXRrmMAAAAd/blow-mind-mind-blown.gif"  width="300" height="300">
+<img src="https://media.tenor.com/tvFWFDXRrmMAAAAd/blow-mind-mind-blown.gif"  width="250" style = "padding-left: 4em;">
 
 - We thus investigate the plausibility of the data given $H_0$, but NOT the plausibility of the hypothesis given the data!
 
@@ -620,6 +620,11 @@ $prior \rightarrow data \rightarrow posterior$
 
 $p(\theta) \rightarrow D \rightarrow p(\theta|D)$
 
+<br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Prior%2C_Likelihood%2C_Posterior_schematic.svg" width = 400 align="right" />
+
+
 ]
 
 
@@ -630,6 +635,8 @@ $p(\theta) \rightarrow D \rightarrow p(\theta|D)$
 > Bayesian data analysis has two foundational ideas. The first idea is that Bayesian inference is *reallocation of credibility* across possibilities. The second foundational idea is that the possibilities, over which we allocate credibility, are *parameter values in meaningful mathematical models*. (Kruschke, 2015, p. 15)
 
 ]
+
+
 
 ---
 
@@ -2890,6 +2897,23 @@ draws %>%
 
 ---
 
+# How to report Bayesian results
+
+- Overall similar to standard model reporting, but additional consider:
+
+- Justify the use of Bayesian methods (reiterate benefits over other approaches, motify the use of prior)
+
+- Clearly describe data structure, model, and parameter
+
+- Sufficiently describe the chosen priors and justify them
+
+- Report MCMC details (convergence of chains, length of chains, ESS)
+
+- Comprehensive interpretation of the posterior (driven by research questions/hypotheses) 
+
+
+---
+
 class: inverse, center, middle
 
 # Let's practice in R!
@@ -2902,14 +2926,18 @@ Perhaps it will turn you into a "Bayesian"...
 # Literature
 
 
-- Kurz, S. (2022). Doing Bayesian Data Analysis in brms and the tidyverse
+- Dilipkumar, D. (2021). *Frequentist and Bayesian Inference.* https://towardsdatascience.com/frequentist-and-bayesian-inference-83af2595f172
+
+- Jackman, S. (2009). *Bayesian Analysis for the Social Science.* Wiley. 
+
+- Kurz, S. (2022). *Doing Bayesian Data Analysis in brms and the tidyverse*
 (version 1.0.0). Retrieved from https://bookdown.org/content/3686/
 
-- Kurz, S. (2022). Statistical Rethinking with brms, ggplot2, and the tidyverse
+- Kurz, S. (2022). *Statistical Rethinking with brms, ggplot2, and the tidyverse*
 (version 1.0.1). Retrieved from https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/
 
-- Kruschke, J. (2015). Doing Bayesian Data Analysis. A Tutorial Introduction with R. Elsevier Science. 
+- Kruschke, J. (2015). *Doing Bayesian Data Analysis. A Tutorial Introduction with R.* Elsevier Science. 
 
-- McElreath, R. (2020) Statistical Rethinking: A Bayesian Course with Examples in R and Stan (Second Edition. CRC Press. 
+- McElreath, R. (2020). *Statistical Rethinking: A Bayesian Course with Examples in R and Stan* (Second Edition). CRC Press. 
 
 
