@@ -18,6 +18,8 @@ library(printr)
 
 This tutorial introduces the basic model fitting process as implemented in [`brms`](https://paul-buerkner.github.io/brms/). This package provides an interface to fit Bayesian generalized (non-)linear multivariate multilevel models using Stan. Lucky for us, the formula syntax is very similar to that of the package `lme4` to provide a familiar and simple interface for performing regression analyses. So if you are familiar with fitting multilevel models in `lme4`, using `brms` will be a no-brainer. The interesting part is when we work with the posterior and add prior information to the models. 
 
+If you are interested in working through some more fundamental basics of Bayesian Statistics, consider going through [this tutorial](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_01.md). 
+
 # Preparation
 
 ## Loading packages

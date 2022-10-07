@@ -16,7 +16,11 @@ library(tidyverse)
 ```
 
 
-In this tutorial, we are going to explore some basics of Bayesian statistics, including exercises to understand what it means to sample from a distribution, mathematically deriving posterior distributions, etc. If you are new to Bayesian statistics, consider working through [these slides]() which introduce the basic concepts and exemplify Bayesian Analysis based on real-world data.
+# Introduction
+
+In this tutorial, we are going to explore some basics of Bayesian statistics, including exercises to understand what it means to sample from a distribution, mathematically deriving posterior distributions, etc. If you are new to Bayesian statistics, consider working through [these slides](https://masurp.github.io/workshop_bayes/slides/slides_01.html#1), which introduce the basic concepts and exemplify Bayesian Analysis based on real-world data.
+
+For a more practical tutorial on how to use the package `brms` to fit Bayesian regression models, see [this handout](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_03.md). 
 
 
 # Basics of data simulation

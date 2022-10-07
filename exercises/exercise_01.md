@@ -3,6 +3,7 @@ Intro to Bayesian Statistic: Basics and distributions
 Philipp Masur
 2022-09
 
+-   <a href="#introduction" id="toc-introduction">Introduction</a>
 -   <a href="#basics-of-data-simulation"
     id="toc-basics-of-data-simulation">Basics of data simulation</a>
     -   <a href="#creating-vectors-of-numbers"
@@ -24,12 +25,20 @@ Philipp Masur
     -   <a href="#likelihood" id="toc-likelihood">Likelihood</a>
     -   <a href="#posterior" id="toc-posterior">Posterior</a>
 
+# Introduction
+
 In this tutorial, we are going to explore some basics of Bayesian
 statistics, including exercises to understand what it means to sample
 from a distribution, mathematically deriving posterior distributions,
 etc. If you are new to Bayesian statistics, consider working through
-[these slides]() which introduce the basic concepts and exemplify
-Bayesian Analysis based on real-world data.
+[these
+slides](https://masurp.github.io/workshop_bayes/slides/slides_01.html#1),
+which introduce the basic concepts and exemplify Bayesian Analysis based
+on real-world data.
+
+For a more practical tutorial on how to use the package `brms` to fit
+Bayesian regression models, see [this
+handout](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_03.md).
 
 # Basics of data simulation
 

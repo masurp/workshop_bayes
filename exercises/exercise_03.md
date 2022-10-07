@@ -47,6 +47,10 @@ you are familiar with fitting multilevel models in `lme4`, using `brms`
 will be a no-brainer. The interesting part is when we work with the
 posterior and add prior information to the models.
 
+If you are interested in working through some more fundamental basics of
+Bayesian Statistics, consider going through [this
+tutorial](https://github.com/masurp/workshop_bayes/blob/main/exercises/exercise_01.md).
+
 # Preparation
 
 ## Loading packages
