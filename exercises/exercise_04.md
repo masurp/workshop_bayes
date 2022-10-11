@@ -340,8 +340,7 @@ Because we get various posteriors for different parameter in our model.
 We can investigate our model in much more detail. For example, we can
 extract posterior distributions for the random effects (i.e., deviations
 from the fixed effects per school). We can use these to plot posterior
-histrograms for each school and evaluate whether any of the school
-aligns with our hypothesis above.
+histrograms for each school.
 
 ``` r
 # Extrating parameters
@@ -366,7 +365,7 @@ param %>%
 
 Of course we can also plot the probable regression lines per school.
 With a bit of data wrangling we get an interesting plot that shows quite
-vivily how different the schools are with regard to the relationship
+vividly how different the schools are with regard to the relationship
 between homework and math.
 
 ``` r
