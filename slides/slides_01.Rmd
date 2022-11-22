@@ -3,7 +3,7 @@ title: "Introduction to Bayesian Statistics"
 subtitle: ""
 author: "Philipp K. Masur"
 institute: ""
-date: "Workshop at the University of Mainz | 10.-11. October 2022"
+date: "Workshop"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
